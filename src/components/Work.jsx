@@ -56,7 +56,7 @@ const Work = () => {
                 {works.map(({ imgSrc, title, tags, projectLink }, key) => (
                     <ProjectCard 
                     key={key}
-                    imgSrc={import.meta.env.BASE_URL + imgSrc}
+                    imgSrc={`${import.meta.env.BASE_URL}${imgSrc}`}
                     title={title}
                     tags={tags}
                     projectLink={projectLink}

@@ -9,7 +9,7 @@ import SkillCard from "./SkillCard";
 const skillItemProficient = [
 
     {
-      imgSrc: '/images/python.svg',
+      imgSrc: import.meta.env.BASE_URL + '/images/python.svg',
       label: 'Python',
       desc: ''
     },
@@ -176,7 +176,7 @@ const Skill = () => {
                 {
                     skillItemProficient.map(({imgSrc, label, desc}, key) => (
                         <SkillCard 
-                            imgSrc={import.meta.env.BASE_URL + imgSrc}
+                            imgSrc={`${import.meta.env.BASE_URL}${imgSrc}`}
                             label={label}
                             desc={desc}
                             classes="reveal-up"
@@ -193,7 +193,7 @@ const Skill = () => {
                 {
                     skillItemFamiliar.map(({imgSrc, label, desc}, key) => (
                         <SkillCard 
-                            imgSrc={import.meta.env.BASE_URL + imgSrc}
+                            imgSrc={`${import.meta.env.BASE_URL}${imgSrc}`}
                             label={label}
                             desc={desc}
                             classes="reveal-up"

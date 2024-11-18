@@ -19,7 +19,7 @@ const SkillCard = ({
         <figure className="bg-zinc-700/50 rounded-lg overflow-hidden 
         w-12 h-12 p-2 group-hover:bg-zinc-900 transition-colors">
             <img 
-            src={import.meta.env.BASE_URL + imgSrc} 
+            src={`${import.meta.env.BASE_URL}${imgSrc}`} 
             width={32}
             height={32}
             alt={label}
