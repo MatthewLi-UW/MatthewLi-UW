@@ -6,32 +6,34 @@
 /* Components */
 import ExperienceCard from "./ExperienceCard";
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 const experiences = [
     {
       content: 'January 2025 to April 2025',
       title: 'Full-Stack Developer (Co-op)',
-      imgSrc: '/images/ops.png',
+      imgSrc: 'images/ops.png',
       company: 'Ontario Public Service - Ministry of Public and Business Service Delivery and Procurement'
     },  
 
     {
       content: 'January 2024 to April 2024',
       title: 'Data Governance Analyst (Co-op)',
-      imgSrc: '/images/questrade.png',
+      imgSrc: 'images/questrade.png',
       company: 'Questrade Financial Group - Questrade Technology Group'
     },    
 
     {
       content: 'May 2023 to August 2023',
       title: 'Technology Risk Student (Co-op)',
-      imgSrc: '/images/osfi_logo.svg',
+      imgSrc: 'images/osfi_logo.svg',
       company: 'Office of the Superintendent of Financial Institutions (OSFI) - Technology Risk Division'
     },
 
     {
       content: 'May 2023 to August 2023',
       title: 'Software Developer (Freelance)',
-      imgSrc: '/images/kjmedi.png',
+      imgSrc: 'images/kjmedi.png',
       company: 'K J Medi Aesthetic Inc.'
     },
   ];
@@ -50,7 +52,7 @@ const Experience = () => {
                     <ExperienceCard 
                     key={key}
                     title={title}
-                    imgSrc={`${imgSrc}`}
+                    imgSrc={`${BASE_URL}${imgSrc}`}
                     company={company}
                     content={content}/>
                 ))}
