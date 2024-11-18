@@ -20,7 +20,7 @@ const Header = () => {
           md:grid md:px-6 md:grid-cols-[1fr,3fr,1fr]">
             <h1> 
               <a href="/" className="logo">
-                <img src="/images/logoWHITE.png" 
+                <img src={import.meta.env.BASE_URL + "/images/logoWHITE.png"} 
                 width={40}
                 height={40}
                 alt="Matthew Li" 

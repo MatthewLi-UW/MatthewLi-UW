@@ -102,7 +102,7 @@ const Footer = () => {
                  href="/"
                  className="logo reveal-up">
                     <img 
-                    src="/images/logoWHITE.png" 
+                    src={import.meta.env.BASE_URL + "/images/logoWHITE.png"}
                     width={40}
                     height={40}
                     alt="Logo"

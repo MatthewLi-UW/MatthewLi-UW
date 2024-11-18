@@ -50,7 +50,7 @@ const Experience = () => {
                     <ExperienceCard 
                     key={key}
                     title={title}
-                    imgSrc={imgSrc}
+                    imgSrc={import.meta.env.BASE_URL + imgSrc}
                     company={company}
                     content={content}/>
                 ))}

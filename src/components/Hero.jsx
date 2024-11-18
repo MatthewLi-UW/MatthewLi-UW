@@ -17,7 +17,7 @@ const Hero = () => {
             <div>
                 <div className="flex items-center gap-3">
                     <figure className="img-box w-9 h-9 rounded-lg">
-                        <img src="/images/bageldolphin.png"
+                        <img src={import.meta.env.BASE_URL + "/images/bageldolphin.png"}
                         width={40}
                         height={40}
                         alt="Matthew Li Picture"
