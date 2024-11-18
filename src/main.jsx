@@ -6,7 +6,7 @@
 /* Node modules */
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import BrowserRouter from 'react-router-dom'
+import BrowserRouter from 'react-router-dom/BrowserRouter'
 
 
 /* Components */
@@ -17,10 +17,13 @@ import './index.css';
 import 'lenis/dist/lenis.css'
 
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
     <BrowserRouter basename={process.env.PUBLIC_URL}>
-     <App />
+     {/* <App /> */}
+     <Routes>
+      <Route path="*" element={<App />} />
+     </Routes>
    </BrowserRouter>
-  </StrictMode>,
+  </React.StrictMode>,
 )
