@@ -9,7 +9,7 @@ import SkillCard from "./SkillCard";
 const skillItemProficient = [
 
     {
-      imgSrc: import.meta.env.BASE_URL + '/images/python.svg',
+      imgSrc: '/images/python.svg',
       label: 'Python',
       desc: ''
     },
