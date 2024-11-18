@@ -9,10 +9,10 @@ const aboutItems = [
       number: 2
     },
 
-    {
-      label: 'Projects done',
-      number: 8
-    },
+    // {
+    //   label: 'Projects done',
+    //   number: 6
+    // },
 
   ];
 

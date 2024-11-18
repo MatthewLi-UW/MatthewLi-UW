@@ -74,7 +74,15 @@ body {
   @apply translate-y-20 opacity-0
 }
 
-
+/* Delete if I ever want to change the project names back to overflowing to second line*/
+.dynamic-font {
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem); /* Dynamically scales font size */
+  max-width: 100%; /* Ensures the title respects the container's width */
+  white-space: nowrap; /* Prevents the text from breaking into multiple lines */
+  overflow: hidden; /* Hides text that overflows */
+  text-overflow: ellipsis; /* Adds "..." when text is truncated */
+  display: block; /* Ensures the element behaves like a block */
+}
 
 /*______________*\
 * COMPONENTS
