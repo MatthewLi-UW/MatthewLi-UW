@@ -19,7 +19,7 @@ const ProjectCard = ({
     + classes}>
         <figure className="img-box aspect-square rounded-lg mb-4">
             <img 
-            src={`${import.meta.env.BASE_URL}${imgSrc}`}
+            src={`${imgSrc}`}
             alt={title}
             loading='lazy'
             className="img-cover" />
