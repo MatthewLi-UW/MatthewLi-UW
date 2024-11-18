@@ -11,20 +11,20 @@ const BASE_URL = import.meta.env.BASE_URL;
 const works = [
     {
       imgSrc: 'images/valise.png',
-      title: 'Valise - Android Travel App',
-      tags: ['Android', 'Kotlin'],
+      title: 'Valise - Travel App',
+      tags: ['Android', 'Kotlin', 'MVVM'],
       projectLink: ''
     },
     {
-      imgSrc: 'images/project-2.jpg',
-      title: 'Free stock photo app',
-      tags: ['API', 'SPA'],
+      imgSrc: 'images/raiinet.png',
+      title: 'RAIInet - Ability Chess',
+      tags: ['Linux', 'C++', 'MVC'],
       projectLink: 'https://pixstock-official.vercel.app/'
     },
     {
       imgSrc: 'images/project-3.jpg',
-      title: 'Recipe app',
-      tags: ['Development', 'API'],
+      title: 'Top Headlines - Web App',
+      tags: ['JavaScript', 'API'],
       projectLink: ''
     },
     {
