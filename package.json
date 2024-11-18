@@ -1,9 +1,9 @@
 {
+  "homepage": "http://MatthewLi-UW.github.io/MatthewLi-UW",
   "name": "matthew-li",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://MatthewLi-UW.github.io/MatthewLi-UW",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
