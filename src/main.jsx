@@ -18,12 +18,12 @@ import 'lenis/dist/lenis.css'
 
 
 createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <StrictMode>
     <BrowserRouter basename={import.meta.env.BASE_URL}>
      {/* <App /> */}
      <Routes>
       <Route path="*" element={<App />} />
      </Routes>
    </BrowserRouter>
-  </React.StrictMode>,
+  </StrictMode>,
 )
