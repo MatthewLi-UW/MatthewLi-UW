@@ -19,7 +19,7 @@ import 'lenis/dist/lenis.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
      {/* <App /> */}
      <Routes>
       <Route path="*" element={<App />} />
