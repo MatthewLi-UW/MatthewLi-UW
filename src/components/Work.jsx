@@ -22,7 +22,7 @@ const works = [
       projectLink: ''
     },
     {
-      imgSrc: 'images/project-3.jpg',
+      imgSrc: 'images/countries.png',
       title: 'Top Headlines - Web App',
       tags: ['JavaScript', 'API'],
       projectLink: 'https://github.com/MatthewLi-UW/CountryNews'
@@ -33,6 +33,13 @@ const works = [
       tags: ['Python', 'Machine Learning'],
       projectLink: ''
     },
+    {
+      imgSrc: 'images/qlife.png',
+      title: 'Qife - Website',
+      tags: ['Angular', 'TypeScript', 'Azure'],
+      projectLink: ''
+    },
+
   ];
 
 const Work = () => {
