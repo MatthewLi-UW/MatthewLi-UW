@@ -10,10 +10,10 @@ const BASE_URL = import.meta.env.BASE_URL;
 
 const works = [
     {
-      imgSrc: 'images/project-1.jpg',
-      title: 'Full stack music app',
-      tags: ['API', 'MVC', 'Development'],
-      projectLink: 'https://musify-5al0.onrender.com/'
+      imgSrc: 'images/valise.png',
+      title: 'Valise - Android Travel App',
+      tags: ['Android', 'Kotlin'],
+      projectLink: ''
     },
     {
       imgSrc: 'images/project-2.jpg',
