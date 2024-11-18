@@ -6,81 +6,84 @@
 /* Components */
 import SkillCard from "./SkillCard";
 
+const BASE_URL = import.meta.env.BASE_URL;
+
+
 const skillItemProficient = [
 
     {
-      imgSrc: '/images/python.svg',
+      imgSrc: 'images/python.svg',
       label: 'Python',
       desc: ''
     },
     {
-      imgSrc: '/images/cplusplus.svg',
+      imgSrc: 'images/cplusplus.svg',
       label: 'C++',
       desc: ''
     },
 
     {
-      imgSrc: '/images/typescript.svg',
+      imgSrc: 'images/typescript.svg',
       label: 'TypeScript',
       desc: ''
     },
     {
-      imgSrc: '/images/javascript.svg',
+      imgSrc: 'images/javascript.svg',
       label: 'JavaScript',
       desc: ''
     },
     {
-      imgSrc: '/images/nodejs.svg',
+      imgSrc: 'images/nodejs.svg',
       label: 'NodeJS',
       desc: ''
     },    
     {
-      imgSrc: '/images/sql2.png',
+      imgSrc: 'images/sql2.png',
       label: 'SQL',
       desc: ''
     },    
     {
-      imgSrc: '/images/angular.svg',
+      imgSrc: 'images/angular.svg',
       label: 'Angular',
       desc: ''
     },
     {
-      imgSrc: '/images/html.svg',
+      imgSrc: 'images/html.svg',
       label: 'HTML',
       desc: ''
     },
     {
-      imgSrc: '/images/css3.svg',
+      imgSrc: 'images/css3.svg',
       label: 'CSS',
       desc: ''
     },    
     {
-      imgSrc: '/images/git.svg',
+      imgSrc: 'images/git.svg',
       label: 'Git',
       desc: ''
     },
     {
-      imgSrc: '/images/m.svg',
+      imgSrc: 'images/m.svg',
       label: 'Power Query M',
       desc: ''
     },
     {
-      imgSrc: '/images/bash.svg',
+      imgSrc: 'images/bash.svg',
       label: 'Bash',
       desc: ''
     },
     {
-      imgSrc: '/images/apps-script.svg',
+      imgSrc: 'images/apps-script.svg',
       label: 'Apps Script',
       desc: ''
     },
     {
-      imgSrc: '/images/azure.svg',
+      imgSrc: 'images/azure.svg',
       label: 'Azure',
       desc: ''
     },
     {
-      imgSrc: '/images/powerbi.png',
+      imgSrc: 'images/powerbi.png',
       label: 'PowerBI',
       desc: ''
     },
@@ -91,59 +94,59 @@ const skillItemProficient = [
 
   const skillItemFamiliar = [    
     {
-      imgSrc: '/images/c.svg',
+      imgSrc: 'images/c.svg',
       label: 'C',
       desc: ''
     },
     {
-      imgSrc: '/images/react.svg',
+      imgSrc: 'images/react.svg',
       label: 'React',
       desc: ''
     },    
     {
-      imgSrc: '/images/java.png',
+      imgSrc: 'images/java.png',
       label: 'Java',
       desc: ''
     },
 
     {
-      imgSrc: '/images/kotlin.svg',
+      imgSrc: 'images/kotlin.svg',
       label: 'Kotlin',
       desc: ''
     },
     {
-      imgSrc: '/images/firebase.png',
+      imgSrc: 'images/firebase.png',
       label: 'Firebase',
       desc: ''
     },
     {
-      imgSrc: '/images/gitlab.svg',
+      imgSrc: 'images/gitlab.svg',
       label: 'GitLab',
       desc: ''
     },
     {
-      imgSrc: '/images/google-cloud.svg',
+      imgSrc: 'images/google-cloud.svg',
       label: 'Google Cloud',
       desc: ''
     },
     {
-      imgSrc: '/images/pandas.png',
+      imgSrc: 'images/pandas.png',
       label: 'Pandas',
       desc: ''
     },    
     {
-      imgSrc: '/images/racket.svg',
+      imgSrc: 'images/racket.svg',
       label: 'Racket',
       desc: ''
     },
     {
-      imgSrc: '/images/figma.svg',
+      imgSrc: 'images/figma.svg',
       label: 'Figma',
       desc: ''
     },
 
     {
-      imgSrc: '/images/tailwindcss.svg',
+      imgSrc: 'images/tailwindcss.svg',
       label: 'TailwindCSS',
       desc: ''
     },
@@ -176,7 +179,7 @@ const Skill = () => {
                 {
                     skillItemProficient.map(({imgSrc, label, desc}, key) => (
                         <SkillCard 
-                            imgSrc={`${imgSrc}`}
+                            imgSrc={BASE_URL + imgSrc}
                             label={label}
                             desc={desc}
                             classes="reveal-up"
@@ -193,7 +196,7 @@ const Skill = () => {
                 {
                     skillItemFamiliar.map(({imgSrc, label, desc}, key) => (
                         <SkillCard 
-                            imgSrc={`${imgSrc}`}
+                            imgSrc={`${BASE_URL}${imgSrc}`}
                             label={label}
                             desc={desc}
                             classes="reveal-up"
