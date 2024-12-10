@@ -11,7 +11,7 @@ const BASE_URL = import.meta.env.BASE_URL;
 const works = [
     {
       imgSrc: 'images/valisepic.png',
-      title: 'Valise - Travel App',
+      title: 'Valise - Travel App why is this not updating what is going on',
       tags: ['Android', 'Kotlin', 'MVVM'],
       projectLink: ''
     },
