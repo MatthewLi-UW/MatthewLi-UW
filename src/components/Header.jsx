@@ -19,7 +19,7 @@ const Header = () => {
           <div className="max-w-screen-2xl w-full mx-auto px-4 flex justify-between items-center
           md:grid md:px-6 md:grid-cols-[1fr,3fr,1fr]">
             <h1> 
-              <a href="#home" className="logo">
+              <a className="logo">
                 <img src={import.meta.env.BASE_URL + "/images/logoWHITE.png"} 
                 width={40}
                 height={40}
