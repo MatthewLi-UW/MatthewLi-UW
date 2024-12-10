@@ -11,7 +11,7 @@ const BASE_URL = import.meta.env.BASE_URL;
 const works = [
     {
       imgSrc: 'images/braintrainr.png',
-      title: 'BrainTrainr - AI',
+      title: 'BrainTrainr - AI Learning',
       tags: ['AI', 'LLM', 'Full-Stack'],
       projectLink: 'https://meta-llama-hackathon.vercel.app/'
     },
