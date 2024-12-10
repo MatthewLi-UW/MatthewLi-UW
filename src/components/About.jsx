@@ -5,7 +5,7 @@
 
 const aboutItems = [
     {
-      label: 'Years of learning and applying software development skills. WHY IS THIS NOT UPDATING HELLO',
+      label: 'Years of learning and applying software development skills.',
       number: 2
     },
 
