@@ -10,6 +10,12 @@ const BASE_URL = import.meta.env.BASE_URL;
 
 const works = [
     {
+      imgSrc: 'images/braintrainr.png',
+      title: 'BrainTrainr',
+      tags: ['Android', 'Kotlin', 'MVVM'],
+      projectLink: 'https://meta-llama-hackathon.vercel.app/'
+    },
+    {
       imgSrc: 'images/valisepic.png',
       title: 'Valise - Travel App',
       tags: ['Android', 'Kotlin', 'MVVM'],
