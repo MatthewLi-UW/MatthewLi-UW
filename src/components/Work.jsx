@@ -10,7 +10,7 @@ const BASE_URL = import.meta.env.BASE_URL;
 
 const works = [
     {
-      imgSrc: 'images/new_valise_banner.png',
+      imgSrc: 'images/valisepic.png',
       title: 'Valise - Travel App',
       tags: ['Android', 'Kotlin', 'MVVM'],
       projectLink: ''
