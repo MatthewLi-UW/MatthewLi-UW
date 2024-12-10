@@ -114,7 +114,7 @@ const skillItemProficient = [
       desc: ''
     },
     {
-      imgSrc: 'images/flask.svg',
+      imgSrc: 'images/flask.png',
       label: 'Flask',
       desc: ''
     },  
