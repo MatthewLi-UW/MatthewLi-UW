@@ -104,10 +104,25 @@ const skillItemProficient = [
       desc: ''
     },    
     {
+      imgSrc: 'images/next.svg',
+      label: 'Next',
+      desc: ''
+    },  
+    {
       imgSrc: 'images/java.png',
       label: 'Java',
       desc: ''
     },
+    {
+      imgSrc: 'images/flask.png',
+      label: 'Flask',
+      desc: ''
+    },  
+    {
+      imgSrc: 'images/postgresql.svg',
+      label: 'PostgreSQL',
+      desc: ''
+    },  
 
     {
       imgSrc: 'images/kotlin.svg',
