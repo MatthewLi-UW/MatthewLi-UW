@@ -36,10 +36,10 @@ const Hero = () => {
                 Third-year @ University of Waterloo, pursuing a double degree in Computer Science and Business
                 </h2>
                 <div className="flex items-center gap-3">
-                    <ButtonPrimary 
+                    {/* <ButtonPrimary 
                         label="Download CV"
                         icon="download"
-                    />
+                    /> */}
 
                     <ButtonOutline 
                         label="Scroll down"
