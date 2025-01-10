@@ -25,7 +25,7 @@ const experiences = [
 
     {
       content: 'May 2023 to August 2023',
-      title: 'Technology Risk Student (Co-op)',
+      title: 'Tools Developer (Co-op)',
       imgSrc: 'images/osfi_logo.svg',
       company: 'Office of the Superintendent of Financial Institutions (OSFI) - Technology Risk Division'
     },
