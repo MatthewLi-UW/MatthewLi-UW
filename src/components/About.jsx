@@ -6,7 +6,7 @@
 const aboutItems = [
     {
       label: 'Years of learning and applying software development skills.',
-      number: 2
+      number: 3
     },
 
     // {

@@ -19,7 +19,7 @@ const works = [
       imgSrc: 'images/valisesquare.png',
       title: 'Valise - Travel App',
       tags: ['Android', 'Kotlin', 'MVVM'],
-      projectLink: ''
+      projectLink: 'https://github.com/MatthewLi-UW/valise'
     },
     {
       imgSrc: 'images/raiinet.png',

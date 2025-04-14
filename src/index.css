@@ -164,3 +164,18 @@ body {
 .text-field::placeholder {
   @apply text-zinc-400
 }
+
+/* Extra */
+/* Add to your global CSS */
+.fade-out {
+  opacity: 0;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
