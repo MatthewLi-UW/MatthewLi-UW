@@ -15,25 +15,24 @@ const experiences = [
       title: 'Full-Stack Developer (Co-op)',
       imgSrc: 'images/ops.png',
       company: 'Ontario Public Service - Ministry of Public and Business Service Delivery and Procurement',
-      description: 'Developed web applications using modern frameworks and technologies.',
-      skills: ['React', 'Node.js', 'Azure', 'TypeScript']
+      description: 'Co-led development of an AI-powered enterprise application. Contributed to RAG-based solutions and data pipelines.',
+      skills: ['Python', 'C#', 'LangChain', 'Databricks', '.NET 9', 'JavaScript', 'SQL', 'Spark', 'Semantic Kernel']
     },  
-    // Other experiences remain the same
     {
       content: 'January 2024 to April 2024',
       title: 'Data Governance Analyst (Co-op)',
       imgSrc: 'images/questrade.png',
       company: 'Questrade Financial Group - Questrade Technology Group',
-      description: 'Implemented data governance policies and managed data quality initiatives.',
-      skills: ['SQL', 'Data Analysis', 'Power BI', 'Tableau']
+      description: 'Implemented data governance policies and managed data quality initiatives. Led investigation of modern Open Banking API standards.',
+      skills: ['Google Apps Script', 'JavaScript', 'Rest API', 'BigQuery', 'JQL']
     },    
     {
       content: 'May 2023 to August 2023',
       title: 'Tools Developer (Co-op)',
       imgSrc: 'images/osfi_logo.svg',
       company: 'Office of the Superintendent of Financial Institutions (OSFI) - Technology Risk Division',
-      description: 'Created tools to enhance workflow efficiency and automate risk assessment processes.',
-      skills: ['Python', 'Automation', 'Risk Analysis', 'Azure DevOps']
+      description: 'Created internal backend tools to enhance workflow efficiency and automate risk assessment processes.',
+      skills: ['Python', 'Power Query M', 'PowerBI', 'Rest API', 'Excel']
     },
     {
       content: 'April 2023 to September 2023',
@@ -41,7 +40,7 @@ const experiences = [
       imgSrc: 'images/kjmedi.png',
       company: 'K J Medi Aesthetic Inc.',
       description: 'Designed and implemented custom software solutions for business operations.',
-      skills: ['React', 'UI/UX Design', 'Database Design', 'API Integration']
+      skills: ['Angular', 'TypeScript', 'Node.js', 'HTML', 'CSS', 'Azure']
     },
 ];
 
@@ -167,7 +166,7 @@ const Experience = () => {
                     <div className="mb-3">
                         <p className="text-xs text-zinc-400 mb-2">Technologies & Skills:</p>
                         <div className="flex flex-wrap gap-2">
-                            {experiences[activeIndex].skills && experiences[activeIndex].skills.slice(0, 6).map((skill, i) => (
+                            {experiences[activeIndex].skills && experiences[activeIndex].skills.map((skill, i) => (
                                 <span key={i} className="bg-accent/10 text-accent text-xs px-2 py-1 rounded-full">
                                     {skill}
                                 </span>
@@ -229,7 +228,7 @@ const Experience = () => {
                               <div className="mb-4">
                                   <p className="text-sm text-zinc-400 mb-3">Technologies & Skills:</p>
                                   <div className="flex flex-wrap gap-2">
-                                      {experience.skills && experience.skills.slice(0, 6).map((skill, i) => (
+                                      {experience.skills && experience.skills.map((skill, i) => (
                                           <span key={i} className="bg-accent/10 text-accent text-xs px-3 py-1 rounded-full">
                                               {skill}
                                           </span>

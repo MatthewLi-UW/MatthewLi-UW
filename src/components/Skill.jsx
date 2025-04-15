@@ -83,7 +83,8 @@ const skillsData = {
 };
 
 const Skill = () => {
-  const [activeNode, setActiveNode] = useState(null);
+  // Change from null to "programming" for default expansion
+  const [activeNode, setActiveNode] = useState("programming");
   const [hoveredSkill, setHoveredSkill] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
@@ -277,7 +278,16 @@ const Skill = () => {
         </p>
         
         {isVisible && renderStage >= 1 && (
-          <div className="flex justify-center mb-8 md:mb-16">
+          <div className="flex flex-col items-center mb-8 md:mb-16">
+            {/* Horizons text moved to top */}
+            <div className="text-sm text-zinc-500 flex items-center mb-3">
+              <span className="material-symbols-rounded text-green-500 mr-1 text-sm">
+                insights
+              </span>
+              <span>Expanding my horizons</span>
+            </div>
+            
+            {/* Toggle button below the text */}
             <button 
               onClick={toggleViewMode} 
               className="flex items-center gap-2 px-4 py-2 bg-zinc-800/70 rounded-full border border-zinc-700/50 hover:bg-zinc-700/50 transition-all"
@@ -287,13 +297,6 @@ const Skill = () => {
               </span>
               {isListMode ? 'Graph View' : 'List View'}
             </button>
-            
-            <div className="ml-4 text-sm text-zinc-500 flex items-center">
-              <span className="material-symbols-rounded text-green-500 mr-1 text-sm">
-                insights
-              </span>
-              <span>Expanding my horizons</span>
-            </div>
           </div>
         )}
 
