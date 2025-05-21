@@ -4,7 +4,7 @@ Hi there! 👋
 
 I'm a **CS/BBA student at the University of Waterloo**, passionate about software development and cutting edge AI technology.  
 
-CHECK OUT [krammy.app](https://www.krammy.app/), my very own LLM-powered flashcard app!
+Check Out [**krammy.app**](https://www.krammy.app/), my very own LLM-powered flashcard app, released under **Stakky AI**!
 
 ## 🌐 Learn More  
 
