@@ -1,10 +1,10 @@
 # Matthew Li  
 
-Hi there! 👋  
+Hi there! 
 
 I'm a **CS/BBA student at the University of Waterloo**, passionate about software development and cutting edge AI technology.  
 
-Check Out [**krammy.app**](https://www.krammy.app/), my very own LLM-powered flashcard app, released under [**Stakky AI**](https://ca.linkedin.com/company/stakky-ai)!
+Check out [**krammy.app**](https://www.krammy.app/), my very own LLM-powered flashcard app, released under [**Stakky AI**](https://ca.linkedin.com/company/stakky-ai)!
 
 ## 🌐 Learn More  
 
