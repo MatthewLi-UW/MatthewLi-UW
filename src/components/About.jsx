@@ -6,7 +6,7 @@
 const aboutItems = [
     {
       label: 'Years of learning and applying software development skills.',
-      number: 3
+      number: 4
     },
 
     // {
@@ -24,12 +24,11 @@ const About = () => {
         <div className="container">
             <div className="bg-zinc-800/50 p-7 rounded-2xl md:p-12 reveal-up">
                 <p className="text-zinc-300 mb-4 md:mb-4 md:text-xl md:max-w-[60ch]">
-                I&apos;m Matthew, a developer with a passion for building
-                innovative solutions to real-world problems through technology. 
+                I’m Matthew, a CS & Business double-degree student at Waterloo, specializing in AI and finance.
+
                 </p>
                 <p className="text-zinc-300 mb-4 md:mb-8 md:text-xl md:max-w-[60ch]">
-                Excited to gain hands-on 
-                experience in collaborative software development and cutting-edge AI/ML technology.
+                Passionate about building AI-powered tools that solve real-world problems.
                 </p>
                 
                 <div className="flex flex-wrap items-center gap-4 md:gap-12">

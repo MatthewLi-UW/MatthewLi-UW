@@ -10,6 +10,24 @@ const BASE_URL = import.meta.env.BASE_URL;
 
 const works = [
     {
+      imgSrc: 'images/krammy_logo_orange.png',
+      title: 'Krammy',
+      tags: ['Full-Stack', 'LLM'],
+      projectLink: 'https://www.krammy.app/'
+    },
+    {
+      imgSrc: 'images/justff.png',
+      title: 'Voice Emotion Detection',
+      tags: ['Voice', 'Whisper', 'ML'],
+      projectLink: 'https://github.com/MatthewLi-UW/voice-chat-emotion-detection'
+    },
+    {
+      imgSrc: 'images/snake2.png',
+      title: 'ML Snake Agent',
+      tags: ['PyTorch', 'Neural Networks'],
+      projectLink: 'https://github.com/MatthewLi-UW/autonomous-snake-agent'
+    },
+    {
       imgSrc: 'images/braintrainr.png',
       title: 'BrainTrainr - AI Learning',
       tags: ['AI', 'LLM', 'Full-Stack'],

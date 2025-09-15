@@ -11,6 +11,14 @@ const BASE_URL = import.meta.env.BASE_URL;
 
 const experiences = [
     {
+      content: 'May 2025 Onwards',
+      title: 'ML Backend Engineer (Part-time)',
+      imgSrc: 'images/veridocx.jpg',
+      company: 'Veridocx',
+      description: 'Engineering AI models and backend systems to help health startups navigate the regulatory maze.',
+      skills: ['Full-Stack Development', 'Python', 'React', 'FastAPI', 'LangChain', 'Docker', 'Kubernetes', 'Azure' ]
+    },  
+    {
       content: 'January 2025 to April 2025',
       title: 'Full-Stack Developer (Co-op)',
       imgSrc: 'images/ops.png',

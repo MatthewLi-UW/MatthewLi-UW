@@ -33,7 +33,7 @@ const Hero = () => {
                     </div>
                 </div>
                 <h2 className="headline-1 max-w-[15ch] sm:max-w-[20ch] lg:max-w-[25ch] mt-5 mb-8 lg:mb-10">
-                Third-year @ University of Waterloo, pursuing a double degree in Computer Science and Business
+                Fourth-year @ University of Waterloo, pursuing a double degree in Computer Science and Business
                 </h2>
                 <div className="flex items-center gap-3">
                     {/* <ButtonPrimary 
