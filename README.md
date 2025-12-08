@@ -10,7 +10,3 @@ Check out [**krammy.app**](https://www.krammy.app/), my very own LLM-powered fla
 
 For more about me, my projects, and my journey, visit my personal website:  
 [**matthewli-uw.github.io**](https://matthewli-uw.github.io/MatthewLi-UW/)
-
-
-### Stats for Public Repos
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=MatthewLi-UW&hide_progress=true&theme=dark)
