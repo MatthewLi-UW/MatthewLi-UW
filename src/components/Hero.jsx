@@ -29,7 +29,7 @@ const Hero = () => {
                             <span className="absolute inset-0 rounded-full bg-emerald-400 animate-ping"></span>
                         </span>
 
-                        Seeking Internship for Winter 2026
+                        Seeking Internship for Fall 2026
                     </div>
                 </div>
                 <h2 className="headline-1 max-w-[15ch] sm:max-w-[20ch] lg:max-w-[25ch] mt-5 mb-8 lg:mb-10">
