@@ -4,94 +4,84 @@
  */
 
 /* Modules */
-import { useRef , useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 
-const Navbar = ({navOpen}) => {
+const navItems = [
+  { label: "Home", link: "#home", className: "nav-link" },
+  { label: "About", link: "#about", className: "nav-link" },
+  { label: "Skills", link: "#skills", className: "nav-link" },
+  { label: "Experience", link: "#experience", className: "nav-link" },
+  { label: "Projects", link: "#work", className: "nav-link" },
+];
 
-    const lastActiveLink = useRef();
-    const activeBox = useRef();
+const Navbar = ({ navOpen }) => {
+  const [activeLink, setActiveLink] = useState("#home");
+  const activeBox = useRef(null);
+  const linkRefs = useRef({});
 
-    const initActiveBox = () => {
-      activeBox.current.style.top = lastActiveLink.current.offsetTop + 'px';
-      activeBox.current.style.left = lastActiveLink.current.offsetLeft + 'px';
-      activeBox.current.style.width = lastActiveLink.current.offsetWidth + 'px';
-      activeBox.current.style.height = lastActiveLink.current.offsetHeight + 'px';
-    }
+  useEffect(() => {
+    const updateActiveOnScroll = () => {
+      const scrollMarker = window.scrollY + 120;
+      let current = "#home";
 
-    useEffect(initActiveBox, []);
-    window.addEventListener('resize', initActiveBox);
+      navItems.forEach(({ link }) => {
+        const section = document.querySelector(link);
+        if (!section) return;
 
-    const activeCurrentLink = (event) => {
-      lastActiveLink.current?.classList.remove('active');
-      event.target.classList.add('active');
-      lastActiveLink.current = event.target;
-
-      activeBox.current.style.top = event.target.offsetTop + 'px';
-      activeBox.current.style.left = event.target.offsetLeft + 'px';
-      activeBox.current.style.width = event.target.offsetWidth + 'px';
-      activeBox.current.style.height = event.target.offsetHeight + 'px';
-    }
-
-    const navItems = [
-        {
-          label: 'Home',
-          link: '#home',
-          className: 'nav-link active',
-          ref: lastActiveLink
-        },
-        {
-          label: 'About',
-          link: '#about',
-          className: 'nav-link'
-        },
-        {
-          label: 'Skills',
-          link: '#skills',
-          className: 'nav-link'
-        },
-        {
-          label: 'Experience',
-          link: '#experience',
-          className: 'nav-link'
-        },
-        {
-          label: 'Projects',
-          link: '#work',
-          className: 'nav-link'
-        },
-        {
-          label: 'Contact',
-          link: '#contact',
-          className: 'nav-link md:hidden'
+        const top = section.offsetTop;
+        const bottom = top + section.offsetHeight;
+        if (scrollMarker >= top && scrollMarker < bottom) {
+          current = link;
         }
-      ];
+      });
+
+      setActiveLink((prev) => (prev === current ? prev : current));
+    };
+
+    updateActiveOnScroll();
+    window.addEventListener("scroll", updateActiveOnScroll, { passive: true });
+    return () => window.removeEventListener("scroll", updateActiveOnScroll);
+  }, []);
+
+  useEffect(() => {
+    const updateActiveBox = () => {
+      const activeElement = linkRefs.current[activeLink];
+      if (!activeElement || !activeBox.current) return;
+
+      activeBox.current.style.top = `${activeElement.offsetTop}px`;
+      activeBox.current.style.left = `${activeElement.offsetLeft}px`;
+      activeBox.current.style.width = `${activeElement.offsetWidth}px`;
+      activeBox.current.style.height = `${activeElement.offsetHeight}px`;
+    };
+
+    updateActiveBox();
+    window.addEventListener("resize", updateActiveBox);
+    return () => window.removeEventListener("resize", updateActiveBox);
+  }, [activeLink, navOpen]);
+
   return (
-    <nav className={'navbar ' + (navOpen ? 'active' : '')}>
-        {
-            navItems.map(({ label,link,className,ref},key) => (
-                <a 
-                href={link} 
-                key={key}
-                ref={ref}
-                className={className}
-                onClick={activeCurrentLink}
-                >
-                    {label}
-                </a>
-            )
-            )
-        }
-        <div 
-        className="active-box"
-        ref={activeBox}
-        ></div>
+    <nav className={"navbar " + (navOpen ? "active" : "")}>
+      {navItems.map(({ label, link, className }) => (
+        <a
+          href={link}
+          key={link}
+          ref={(element) => {
+            linkRefs.current[link] = element;
+          }}
+          className={`${className} ${activeLink === link ? "active" : ""}`}
+          onClick={() => setActiveLink(link)}
+        >
+          {label}
+        </a>
+      ))}
+      <div className="active-box" ref={activeBox}></div>
     </nav>
-  )
-}
+  );
+};
 
-Navbar.PropTypes = {
-    navOpen: PropTypes.bool.isRequired
-}
+Navbar.propTypes = {
+  navOpen: PropTypes.bool.isRequired,
+};
 
-export default Navbar
+export default Navbar;

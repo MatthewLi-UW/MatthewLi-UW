@@ -28,11 +28,22 @@ const Hero = () => {
                 <h2 className="headline-1 max-w-[15ch] sm:max-w-[20ch] lg:max-w-[25ch] mt-5 mb-8 lg:mb-10">
                 Fourth-year @ University of Waterloo, pursuing a double degree in Computer Science and Business
                 </h2>
+                <a
+                  href="https://stakky.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mb-6 rounded-xl bg-zinc-800/80 ring-1 ring-zinc-50/10 px-4 py-2 text-sm text-zinc-200 hover:bg-zinc-700/80 transition-colors"
+                >
+                  <span className="material-symbols-rounded text-sky-300 text-[18px]">rocket_launch</span>
+                  Building Stakky - stakky.dev
+                </a>
                 <div className="flex items-center gap-3">
-                    {/* <ButtonPrimary 
-                        label="Download CV"
-                        icon="download"
-                    /> */}
+                    <ButtonPrimary 
+                        label="Visit Stakky"
+                        href="https://stakky.dev"
+                        target="_blank"
+                        icon="arrow_outward"
+                    />
 
                     <ButtonOutline 
                         label="Scroll down"
@@ -40,6 +51,13 @@ const Hero = () => {
                         icon="arrow_downward"
                     />
                 </div>
+                <a
+                  href="mailto:mf5li@uwaterloo.ca"
+                  className="inline-flex items-center gap-2 mt-4 text-zinc-300 hover:text-zinc-100 transition-colors"
+                >
+                  <span className="material-symbols-rounded text-[18px] text-sky-300">mail</span>
+                  mf5li@uwaterloo.ca
+                </a>
             </div>
 
             <div className="hidden lg:block">

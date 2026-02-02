@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://matthewli-uw.github.io/MatthewLi-UW/sitemap.xml
