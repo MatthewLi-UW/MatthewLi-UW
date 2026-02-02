@@ -10,14 +10,14 @@ import About from "./components/About";
 import Skill from "./components/Skill";
 import Work from "./components/Work";
 import Experience from "./components/Experience";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import BackgroundFX from "./components/BackgroundFX";
 
 /* Node modules */
-import { ReactLenis, useLenis } from 'lenis/react'
+import { ReactLenis } from 'lenis/react'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from '@gsap/react';
+import Footer from "./components/Footer";
 
 /* Register gsap */
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -46,16 +46,18 @@ const App = () => {
   
   return (
     <ReactLenis root>
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Skill />
-        <Experience />
-        <Work />
-        <Contact />
-      </main>
-      <Footer />
+      <BackgroundFX />
+      <div className="relative z-10">
+        <Header />
+        <main>
+          <Hero />
+          <About />
+          <Skill />
+          <Experience />
+          <Work />
+          <Footer />
+        </main>
+      </div>
     </ReactLenis>
   )
 

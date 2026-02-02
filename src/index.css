@@ -179,3 +179,187 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/*______________*\
+* BACKGROUND FX
+\*______________*/
+
+.space-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.space-stars,
+.space-nebula,
+.space-constellations,
+.space-meteors {
+  position: absolute;
+  inset: 0;
+}
+
+.space-stars {
+  opacity: 0.7;
+  background-image:
+    radial-gradient(1.2px 1.2px at 22% 38%, rgba(206, 232, 255, 0.85) 99%, transparent 100%),
+    radial-gradient(1.4px 1.4px at 36% 18%, rgba(255, 255, 255, 0.85) 99%, transparent 100%),
+    radial-gradient(1.6px 1.6px at 66% 26%, rgba(255, 255, 255, 0.9) 99%, transparent 100%),
+    radial-gradient(2px 2px at 92% 72%, rgba(255, 255, 255, 0.85) 99%, transparent 100%);
+  background-size: 280px 280px;
+  animation: twinkle 12s ease-in-out infinite alternate, starDrift 90s linear infinite;
+}
+
+.space-stars::before,
+.space-stars::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background-image:
+    radial-gradient(1.3px 1.3px at 28% 72%, rgba(210, 232, 255, 0.6) 99%, transparent 100%),
+    radial-gradient(1.6px 1.6px at 52% 34%, rgba(255, 255, 255, 0.75) 99%, transparent 100%),
+    radial-gradient(1.8px 1.8px at 78% 18%, rgba(255, 255, 255, 0.8) 99%, transparent 100%);
+  background-size: 320px 320px;
+  opacity: 0.5;
+  animation: starDrift 140s linear infinite reverse;
+}
+
+.space-stars::after {
+  opacity: 0.35;
+  filter: blur(0.5px);
+  animation-duration: 180s;
+}
+
+.space-nebula {
+  opacity: 0.18;
+  background:
+    radial-gradient(36rem 24rem at 18% 8%, rgba(56, 189, 248, 0.2), transparent 68%),
+    radial-gradient(24rem 18rem at 84% 16%, rgba(96, 165, 250, 0.14), transparent 70%),
+    radial-gradient(28rem 20rem at 62% 76%, rgba(59, 130, 246, 0.12), transparent 72%);
+  filter: blur(12px);
+  animation: nebulaDrift 26s ease-in-out infinite alternate;
+}
+
+.space-constellations {
+  opacity: 0.55;
+  mix-blend-mode: screen;
+  animation: constellationDrift 70s ease-in-out infinite alternate;
+}
+
+.constellation-star {
+  position: absolute;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 4px rgba(186, 230, 253, 0.4);
+  animation: starPulse 3s ease-in-out infinite alternate;
+  z-index: 2;
+}
+
+.constellation-line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(186, 230, 253, 0.7) 0%, rgba(186, 230, 253, 0.7) 100%);
+  transform-origin: 0 50%;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.meteor {
+  position: absolute;
+  width: 2px;
+  height: min(22vw, 180px);
+  opacity: 0;
+  background: linear-gradient(180deg, 
+    transparent 0%,
+    rgba(202, 138, 4, 0.3) 30%,
+    rgba(234, 179, 8, 0.5) 50%, 
+    rgba(250, 204, 21, 0.8) 80%, 
+    rgba(253, 224, 71, 0.95) 100%
+  );
+  filter: drop-shadow(0 0 6px rgba(253, 224, 71, 0.7));
+  animation: meteorShower ease-in infinite;
+}
+
+/* Yellow star head */
+.meteor::before {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FDE047 0%, #FACC15 100%);
+  box-shadow: 0 0 10px rgba(253, 224, 71, 1), 0 0 6px rgba(250, 204, 21, 0.8);
+}
+
+/* Remove the tail */
+.meteor::after {
+  display: none;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes starDrift {
+  0% {
+    transform: translate3d(-1%, -1%, 0);
+  }
+  100% {
+    transform: translate3d(1.2%, 1%, 0);
+  }
+}
+
+@keyframes nebulaDrift {
+  0% {
+    transform: translate3d(-1%, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(1%, -1.2%, 0) scale(1.03);
+  }
+}
+
+@keyframes constellationDrift {
+  0% {
+    transform: translate3d(-0.4%, 0.2%, 0);
+  }
+  100% {
+    transform: translate3d(0.5%, -0.3%, 0);
+  }
+}
+
+@keyframes meteorShower {
+  0% {
+    transform: translate3d(80vw, -20vh, 0) rotate(45deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate3d(-0vw, 120vh, 0) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes starPulse {
+  0% {
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.4), 0 0 2px rgba(186, 230, 253, 0.3);
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.8), 0 0 6px rgba(186, 230, 253, 0.6);
+    transform: scale(1.15);
+  }
+}
