@@ -9,9 +9,9 @@ Check out [**krammy.app**](https://www.krammy.app/), my very own LLM-powered fla
 
 ## Recent hackathons:
 
-[Precognition](https://github.com/hAlcLeite/CxC): CxC 2026 Winner
+[Precognition](https://github.com/hAlcLeite/CxC): CxC 2026 Winner 🏅
 
-[Slicefund](https://github.com/sxnnywu/slicefund): Hack Canada 2026 Winner
+[Slicefund](https://github.com/sxnnywu/slicefund): Hack Canada 2026 Winner 🏅
 
 ## 🌐 Learn More  
 
