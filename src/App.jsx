@@ -13,6 +13,7 @@ import Experience from "./components/Experience";
 import BackgroundFX from "./components/BackgroundFX";
 
 /* Node modules */
+import { useState } from 'react';
 import { ReactLenis } from 'lenis/react'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -23,6 +24,7 @@ import Footer from "./components/Footer";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const App = () => {
+  const [showDisclaimer, setShowDisclaimer] = useState(true);
 
   useGSAP(() => {
     const elements = gsap.utils.toArray('.reveal-up');
@@ -43,10 +45,23 @@ const App = () => {
     })
   })
 
-  
   return (
     <ReactLenis root>
       <BackgroundFX />
+      {showDisclaimer && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/80 px-6 backdrop-blur-sm">
+          <div className="disclaimer-card">
+            <p className="disclaimer-title">Update in progress :) ...</p>
+            <button
+              type="button"
+              className="btn btn-primary disclaimer-button"
+              onClick={() => setShowDisclaimer(false)}
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      )}
       <div className="relative z-10">
         <Header />
         <main>

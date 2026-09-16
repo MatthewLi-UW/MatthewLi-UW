@@ -180,6 +180,18 @@ body {
   scrollbar-width: none;
 }
 
+.disclaimer-card {
+  @apply w-full max-w-md rounded-2xl border border-zinc-50/10 bg-zinc-900/90 p-6 text-center shadow-2xl;
+}
+
+.disclaimer-title {
+  @apply text-xl font-semibold tracking-wide text-zinc-50 sm:text-2xl;
+}
+
+.disclaimer-button {
+  @apply mx-auto mt-5;
+}
+
 /*______________*\
 * BACKGROUND FX
 \*______________*/
