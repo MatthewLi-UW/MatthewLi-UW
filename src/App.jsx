@@ -1,81 +1,19 @@
-/**
- * @copyright 2024 Matthew Li
- * @license Apache-2.0
- */
+import { useState } from "react";
+import PortfolioExperience from "./experience/PortfolioExperience";
 
-/* Components */
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Skill from "./components/Skill";
-import Work from "./components/Work";
-import Experience from "./components/Experience";
-import BackgroundFX from "./components/BackgroundFX";
-
-/* Node modules */
-import { useState } from 'react';
-import { ReactLenis } from 'lenis/react'
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from '@gsap/react';
-import Footer from "./components/Footer";
-
-/* Register gsap */
-gsap.registerPlugin(useGSAP, ScrollTrigger);
-
-const App = () => {
-  const [showDisclaimer, setShowDisclaimer] = useState(true);
-
-  useGSAP(() => {
-    const elements = gsap.utils.toArray('.reveal-up');
-
-    elements.forEach((element) => {
-      gsap.to(element, {
-        scrollTrigger: {
-          trigger: element,
-          start: '-200 bottom',
-          end: 'bottom 80%',
-          scrub: true,
-        },
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: 'power2.out'
-      })
-    })
-  })
+export default function App() {
+  const [mode, setMode] = useState("field");
+  const [selectedConstellation, setSelectedConstellation] = useState(null);
+  const [discoveredConstellations, setDiscoveredConstellations] = useState([]);
 
   return (
-    <ReactLenis root>
-      <BackgroundFX />
-      {showDisclaimer && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/80 px-6 backdrop-blur-sm">
-          <div className="disclaimer-card">
-            <p className="disclaimer-title">Update in progress :) ...</p>
-            <button
-              type="button"
-              className="btn btn-primary disclaimer-button"
-              onClick={() => setShowDisclaimer(false)}
-            >
-              Continue
-            </button>
-          </div>
-        </div>
-      )}
-      <div className="relative z-10">
-        <Header />
-        <main>
-          <Hero />
-          <About />
-          <Skill />
-          <Experience />
-          <Work />
-          <Footer />
-        </main>
-      </div>
-    </ReactLenis>
-  )
-
+    <PortfolioExperience
+      mode={mode}
+      setMode={setMode}
+      selectedConstellation={selectedConstellation}
+      setSelectedConstellation={setSelectedConstellation}
+      discoveredConstellations={discoveredConstellations}
+      setDiscoveredConstellations={setDiscoveredConstellations}
+    />
+  );
 }
-
-export default App;
