@@ -8,7 +8,7 @@ import './index.css';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
-    {import.meta.env.VITE_VERCEL_HOSTED && <Analytics />}
-    {import.meta.env.VITE_VERCEL_HOSTED && <SpeedInsights />}
+    <Analytics />
+    <SpeedInsights />
   </StrictMode>,
 )
