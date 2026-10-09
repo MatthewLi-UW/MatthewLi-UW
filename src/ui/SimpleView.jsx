@@ -5,11 +5,16 @@ export default function SimpleView({ onClose, isFallback = false }) {
   return (
     <div className="simple-view">
       <header className="simple-header">
-        <a href={import.meta.env.BASE_URL} className="wordmark">MATTHEW LI</a>
+        <a href={import.meta.env.BASE_URL} className="wordmark"><span aria-hidden="true">✦</span> Matthew Li</a>
         {!isFallback && <button type="button" className="simple-close" onClick={onClose}>Return to observatory <span aria-hidden="true">↗</span></button>}
       </header>
       <main>
         <section className="simple-hero">
+          <svg className="simple-star-doodle" viewBox="0 0 240 190" fill="none" aria-hidden="true">
+            <path d="M25 120Q75 60 120 86T205 30M120 86L168 155L205 30" stroke="currentColor" strokeWidth="1.5" strokeDasharray="5 7" />
+            <path d="M25 109L28 117L37 120L28 123L25 132L22 123L13 120L22 117ZM120 68L124 81L138 86L124 90L120 104L116 90L102 86L116 81ZM205 16L208 27L220 30L208 33L205 45L202 33L190 30L202 27ZM168 145L171 152L179 155L171 158L168 166L165 158L157 155L165 152Z" fill="currentColor" />
+            <path d="M46 36Q103 0 156 35M45 43Q95 8 140 28" stroke="currentColor" strokeLinecap="round" opacity=".45" />
+          </svg>
           <span>COMPUTER SCIENCE + BUSINESS · AI SPECIALIZATION · WATERLOO</span>
           <h1>I build AI systems for difficult, real-world problems.</h1>
           <p>I’m Matthew, a Waterloo CS + BBA double-degree student. My work spans security agents at Microsoft, quantum-resistant Bitcoin infrastructure at BitGo, healthcare developer tooling at Verily, and products of my own.</p>
@@ -54,7 +59,7 @@ export default function SimpleView({ onClose, isFallback = false }) {
           </div>
         </section>
       </main>
-      <footer className="simple-footer"><span>MATTHEW LI · 2026</span><a href="mailto:mf5li@uwaterloo.ca">mf5li@uwaterloo.ca</a></footer>
+      <footer className="simple-footer"><span><span aria-hidden="true">✦</span> Matthew Li · 2026</span><a href="mailto:mf5li@uwaterloo.ca">mf5li@uwaterloo.ca</a></footer>
     </div>
   );
 }

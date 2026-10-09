@@ -25,13 +25,13 @@ const ExplorerHUD = forwardRef(function ExplorerHUD({ signal, aim, onOpen, onSim
         <span>DEC</span><strong>{formatDec(aim.pitch)}</strong>
       </div>
       <div ref={reticleRef} className={`reticle ${signal.status}`} aria-hidden="true" />
-      <div className={`signal-card ${target ? "is-active" : ""}`} aria-live="polite">
-        <span>{signal.status === "locked" ? "LOCKED ON" : signal.status === "detected" ? target?.kind === "sky-feature" ? "PAINTED FEATURE" : "SIGNAL DETECTED" : "CHOOSE A NUMBERED STAR"}</span>
-        {target && <><strong>{target.name}</strong><small>{target.subtitle}</small></>}
+      {target && <div className="signal-card is-active" aria-live="polite">
+        <span>{signal.status === "locked" ? "LOCKED ON" : target.kind === "sky-feature" ? "PAINTED FEATURE" : "SIGNAL DETECTED"}</span>
+        <strong>{target.name}</strong><small>{target.subtitle}</small>
         {signal.status === "locked" && (
           <button type="button" onClick={() => onOpen(signal.id)}>Open record <span aria-hidden="true">↗</span></button>
         )}
-      </div>
+      </div>}
     </div>
   );
 });

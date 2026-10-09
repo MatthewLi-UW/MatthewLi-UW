@@ -93,7 +93,7 @@ button:focus-visible, a:focus-visible { outline: 1px solid #e3ded0; outline-offs
 .hud-topline { position: absolute; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 27px 34px; font-size: 10px; letter-spacing: .19em; color: rgba(232,236,235,.68); z-index: 2; }
 .explorer-hud .hud-topline { justify-content: flex-end; }
 .wordmark { text-decoration: none; font-weight: 500; color: var(--paper); }
-.text-button { border: 0; padding: 6px 0; background: transparent; text-transform: uppercase; font-size: 10px; letter-spacing: .18em; cursor: pointer; color: rgba(232,236,235,.62); }
+.text-button { border: 0; padding: 6px 0; background: transparent; font-family: "Schoolbell", cursive; font-size: 16px; letter-spacing: .035em; cursor: pointer; color: rgba(247,237,206,.82); }
 .text-button:hover { color: var(--paper); }
 
 .landing-hud { position: absolute; inset: 0; pointer-events: none; transition: opacity .7s ease; }
@@ -114,9 +114,9 @@ button:focus-visible, a:focus-visible { outline: 1px solid #e3ded0; outline-offs
 .explorer-hud button { pointer-events: auto; }
 .explore-intro { position: absolute; inset: 0; z-index: 4; display: flex; align-items: center; justify-content: center; padding: 24px; background: radial-gradient(circle at center, rgba(5,13,30,.55), rgba(2,7,18,.76)); color: #fff0c8; text-align: center; pointer-events: none; animation: explore-intro-fade 3.5s cubic-bezier(.45,0,.2,1) forwards; }
 .explore-intro span { max-width: 12ch; font-family: "Schoolbell", cursive; font-size: clamp(42px, 6.4vw, 88px); line-height: .93; letter-spacing: -.035em; text-shadow: 0 3px 24px rgba(0,0,0,.78); transform: rotate(-1deg); }
-.coordinates { position: absolute; top: 92px; left: 34px; display: grid; grid-template-columns: 36px 1fr; gap: 5px 13px; font-size: 9px; letter-spacing: .16em; }
-.coordinates span { color: rgba(232,236,235,.38); }
-.coordinates strong { font-weight: 400; color: rgba(232,236,235,.72); font-variant-numeric: tabular-nums; }
+.coordinates { position: absolute; top: 27px; left: 34px; display: grid; grid-template-columns: 30px 1fr; gap: 3px 9px; font-family: "Schoolbell", cursive; font-size: 15px; letter-spacing: .035em; line-height: 1.2; }
+.coordinates span { color: rgba(244,199,129,.7); }
+.coordinates strong { font-weight: 400; color: rgba(247,237,206,.82); font-variant-numeric: tabular-nums; }
 .reticle { position: absolute; left: 0; top: 0; width: 28px; height: 28px; transform: translate3d(50vw, 50vh, 0) translate(-50%, -50%); transition: width .22s ease, height .22s ease, filter .22s ease; will-change: transform; }
 .reticle::before { content: ""; position: absolute; inset: 2px; background: rgba(225,232,233,.72); clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 94%, 50% 72%, 21% 94%, 32% 57%, 2% 35%, 39% 35%); filter: drop-shadow(0 0 4px rgba(192,219,238,.48)); animation: reticle-star-spin 5.5s linear infinite; }
 .reticle.detected { width: 32px; height: 32px; filter: brightness(1.18); }
@@ -161,35 +161,41 @@ button:focus-visible, a:focus-visible { outline: 1px solid #e3ded0; outline-offs
 .project-mark { display: grid; width: 60px; height: 60px; margin-top: 2px; place-items: center; border: 2px dashed rgba(244,199,129,.5); border-radius: 50% 45% 52% 44%; background: rgba(116,143,173,.14); color: #f4c781; font-family: "Schoolbell", cursive; font-size: 19px; letter-spacing: .04em; transform: rotate(-3deg); }
 .project-entry > b { color: #f4c781; font-family: "Schoolbell", cursive; font-size: 16px; font-weight: 400; }
 
-.simple-view { min-height: 100vh; overflow-y: auto; background: #e8e7e2; color: #171b1b; height: 100vh; }
-.simple-header { position: sticky; top: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; padding: 24px 4vw; border-bottom: 1px solid rgba(20,25,25,.16); background: rgba(232,231,226,.88); backdrop-filter: blur(12px); }
-.simple-header .wordmark { color: #171b1b; font-size: 11px; letter-spacing: .18em; }
-.simple-close { border: 0; background: transparent; text-transform: uppercase; font-size: 9px; letter-spacing: .15em; cursor: pointer; }
+/* A handwritten star journal for the plain portfolio. */
+.simple-view { min-height: 100vh; height: 100vh; overflow-y: auto; background-color: #0b1931; background-image: radial-gradient(circle at 15% 18%, rgba(93,129,182,.14), transparent 36%), radial-gradient(circle at 85% 58%, rgba(85,111,158,.1), transparent 38%), repeating-radial-gradient(circle at 31% 43%, rgba(255,244,210,.035) 0 1px, transparent 1px 5px); color: #f6eac7; font-family: "Patrick Hand", cursive; scrollbar-color: #a89066 #0b1931; }
+.simple-header { position: sticky; top: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 24px 4vw; border-bottom: 1px dashed rgba(244,199,129,.3); background: rgba(11,25,49,.94); backdrop-filter: blur(12px); }
+.simple-header .wordmark { color: #fff0c8; font-family: "Schoolbell", cursive; font-size: 23px; letter-spacing: .02em; white-space: nowrap; }
+.simple-header .wordmark > span { margin-right: 8px; color: #f4c781; }
+.simple-close { border: 0; border-bottom: 1px solid rgba(244,199,129,.5); padding: 4px 0; background: transparent; color: #f4c781; font-family: "Schoolbell", cursive; font-size: 16px; letter-spacing: .02em; cursor: pointer; }
 .simple-view main, .simple-footer { width: min(1180px, 92vw); margin: 0 auto; }
-.simple-hero { min-height: 76vh; display: flex; flex-direction: column; justify-content: center; padding: 80px 0; border-bottom: 1px solid rgba(20,25,25,.19); }
-.simple-hero > span, .simple-section-title span { font-size: 9px; letter-spacing: .2em; }
-.simple-hero h1 { max-width: 980px; margin: 25px 0 27px; font-family: "Instrument Serif", Georgia, serif; font-size: clamp(52px, 7.4vw, 108px); line-height: .91; font-weight: 400; letter-spacing: -.035em; }
-.simple-hero > p { max-width: 680px; margin: 0; color: #4b5252; font-size: 16px; line-height: 1.65; }
+.simple-hero { position: relative; min-height: 76vh; display: flex; flex-direction: column; justify-content: center; padding: 80px 0; border-bottom: 2px dashed rgba(244,199,129,.25); }
+.simple-star-doodle { position: absolute; top: 35px; right: 0; width: clamp(110px, 20vw, 240px); color: #f4c781; opacity: .65; pointer-events: none; }
+.simple-hero > span, .simple-section-title span { font-family: "Schoolbell", cursive; font-size: 13px; letter-spacing: .06em; color: #f4c781; }
+.simple-hero > span { position: relative; max-width: 70%; }
+.simple-hero h1 { position: relative; max-width: 980px; margin: 25px 0 27px; font-family: "Schoolbell", cursive; font-size: clamp(48px, 6.5vw, 88px); line-height: 1.05; font-weight: 400; letter-spacing: -.035em; color: #fff0c8; transform: rotate(-.5deg); }
+.simple-hero > p { max-width: 680px; margin: 0; color: rgba(235,232,211,.82); font-size: 21px; line-height: 1.5; }
 .simple-actions { display: flex; flex-wrap: wrap; gap: 26px; margin-top: 37px; }
-.simple-actions a { padding-bottom: 5px; border-bottom: 1px solid rgba(20,25,25,.4); color: inherit; text-decoration: none; text-transform: uppercase; font-size: 9px; letter-spacing: .16em; }
-.simple-section { display: grid; grid-template-columns: 220px 1fr; gap: 40px; padding: 100px 0; border-bottom: 1px solid rgba(20,25,25,.19); }
-.simple-section-title span { color: #777e7c; }
-.simple-section-title h2 { margin: 13px 0 0; font-family: "Instrument Serif", Georgia, serif; font-size: 30px; font-weight: 400; }
-.simple-projects { display: grid; grid-template-columns: repeat(2, 1fr); }
-.simple-projects a { min-height: 255px; padding: 26px; border-top: 1px solid rgba(20,25,25,.2); color: inherit; text-decoration: none; transition: background .2s; }
-.simple-projects a:nth-child(odd) { border-right: 1px solid rgba(20,25,25,.2); }
-.simple-projects a:hover { background: rgba(255,255,255,.35); }
-.simple-projects span, .simple-projects small, .simple-experiences > article > span, .simple-notes article > span { color: #777e7c; text-transform: uppercase; font-size: 8px; letter-spacing: .16em; }
-.simple-projects h3, .simple-notes h3 { margin: 36px 0 10px; font-family: "Instrument Serif", Georgia, serif; font-size: 33px; font-weight: 400; }
-.simple-projects p, .simple-notes p { max-width: 43ch; color: #545b5a; font-size: 12px; line-height: 1.6; }
-.simple-experiences article { display: grid; grid-template-columns: 90px 1fr; gap: 30px; padding: 25px 0; border-top: 1px solid rgba(20,25,25,.2); }
-.simple-experiences h3 { margin: 0; font-family: "Instrument Serif", Georgia, serif; font-size: 26px; font-weight: 400; }
-.simple-experiences h4 { margin: 3px 0 12px; font-size: 11px; font-weight: 400; }
-.simple-experiences p { max-width: 60ch; margin: 0; color: #5f6665; font-size: 11px; line-height: 1.65; }
-.simple-notes > div:last-child { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-.simple-notes article { padding-top: 22px; border-top: 1px solid rgba(20,25,25,.2); }
-.simple-notes h3 { margin-top: 24px; font-size: 26px; }
-.simple-footer { display: flex; justify-content: space-between; padding: 30px 0 45px; font-size: 9px; letter-spacing: .14em; }
+.simple-actions a { padding-bottom: 5px; border-bottom: 2px solid rgba(244,199,129,.5); color: #f4c781; text-decoration: none; font-family: "Schoolbell", cursive; font-size: 18px; letter-spacing: .03em; }
+.simple-actions a:hover, .simple-close:hover { color: #fff0c8; border-color: #fff0c8; }
+.simple-section { display: grid; grid-template-columns: 220px 1fr; gap: 40px; padding: 80px 0; border-bottom: 2px dashed rgba(244,199,129,.25); }
+.simple-section-title > span { display: grid; place-items: center; width: 49px; height: 49px; border: 1.5px solid #f4c781; outline: 1px solid rgba(244,199,129,.3); outline-offset: 4px; border-radius: 47% 53% 45% 55%; font-size: 21px; transform: rotate(-5deg); }
+.simple-section-title h2 { margin: 22px 0 0; font-family: "Schoolbell", cursive; font-size: 35px; font-weight: 400; color: #fff0c8; }
+.simple-section-title h2::after { content: "✦ · ·"; display: block; margin-top: 10px; color: #f4c781; font-size: 19px; letter-spacing: .15em; }
+.simple-projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.simple-projects > a, .simple-projects > article { min-height: 255px; padding: 26px; border: 1.5px solid rgba(244,199,129,.3); border-radius: 14px 8px 15px 10px; background: rgba(255,248,218,.035); color: inherit; text-decoration: none; transition: background .2s, border-color .2s; }
+.simple-projects > a:nth-child(odd), .simple-projects > article:nth-child(odd) { border-right: 1.5px solid rgba(244,199,129,.3); }
+.simple-projects a:hover { background: rgba(255,248,218,.075); border-color: #f4c781; }
+.simple-projects span, .simple-projects small, .simple-experiences > article > span, .simple-notes article > span { color: rgba(244,199,129,.8); font-family: "Schoolbell", cursive; font-size: 13px; letter-spacing: .035em; }
+.simple-projects h3, .simple-notes h3 { margin: 22px 0 10px; font-family: "Schoolbell", cursive; font-size: 32px; font-weight: 400; color: #fff0c8; }
+.simple-projects p, .simple-notes p { max-width: 43ch; color: rgba(235,232,211,.78); font-size: 18px; line-height: 1.45; }
+.simple-experiences article { display: grid; grid-template-columns: 100px 1fr; gap: 24px; padding: 27px 0; border-top: 1px dashed rgba(244,199,129,.3); }
+.simple-experiences h3 { margin: 0; font-family: "Schoolbell", cursive; font-size: 29px; font-weight: 400; color: #fff0c8; }
+.simple-experiences h4 { margin: 5px 0 12px; font-size: 18px; font-weight: 400; color: #f4c781; }
+.simple-experiences p { max-width: 60ch; margin: 0; color: rgba(235,232,211,.78); font-size: 18px; line-height: 1.5; }
+.simple-notes > div:last-child { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.simple-notes article { padding-top: 22px; border-top: 1px dashed rgba(244,199,129,.3); }
+.simple-notes h3 { margin-top: 24px; font-size: 27px; }
+.simple-footer { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; padding: 30px 0 45px; color: #f4c781; font-family: "Schoolbell", cursive; font-size: 15px; letter-spacing: .035em; }
 .simple-footer a { color: inherit; }
 
 @keyframes fade-in { from { opacity: 0; } }
@@ -216,7 +222,7 @@ button:focus-visible, a:focus-visible { outline: 1px solid #e3ded0; outline-offs
   .landing-footer { left: 20px; right: 20px; bottom: 20px; }
   .landing-enter-cue { top: 13vh; }
   .landing-simple-link { top: auto; right: 20px; bottom: 19px; }
-  .coordinates { left: 20px; top: 70px; }
+  .coordinates { left: 20px; top: 20px; }
   .panel-backdrop { padding: 0; }
   .constellation-panel { width: 100%; border: 0; }
   .constellation-panel > header, .panel-intro { padding-left: 23px; padding-right: 23px; }
@@ -224,12 +230,12 @@ button:focus-visible, a:focus-visible { outline: 1px solid #e3ded0; outline-offs
   .constellation-panel h2 { font-size: 46px; }
   .simple-view main, .simple-footer { width: calc(100% - 40px); }
   .simple-header { padding: 20px; }
-  .simple-close { font-size: 8px; }
+  .simple-close { font-size: 14px; }
   .simple-hero { min-height: 72vh; }
   .simple-hero h1 { font-size: 54px; }
   .simple-section { grid-template-columns: 1fr; gap: 38px; padding: 70px 0; }
   .simple-projects { grid-template-columns: 1fr; }
-  .simple-projects a:nth-child(odd) { border-right: 0; }
+  .simple-projects > a:nth-child(odd), .simple-projects > article:nth-child(odd) { border-right: 1.5px solid rgba(244,199,129,.3); }
   .simple-notes > div:last-child { grid-template-columns: 1fr; }
 }
 
@@ -258,6 +264,4 @@ button:focus-visible, a:focus-visible { outline: 1px solid #e3ded0; outline-offs
 .experience-heading h3 { font-size: 24px; }
 .experience-heading h4 { margin-bottom: 0; }
 .simple-experiences .company-logo { float: right; margin: 0 0 14px 16px; }
-.simple-projects article { min-height: 255px; padding: 26px; border-top: 1px solid rgba(20,25,25,.2); }
-.simple-projects article:nth-child(odd) { border-right: 1px solid rgba(20,25,25,.2); }
-@media (max-width: 720px) { .simple-projects article:nth-child(odd) { border-right: 0; } }
+@media (max-width: 720px) { .simple-experiences article { grid-template-columns: 1fr; gap: 12px; } .simple-close { font-size: 14px; } }
