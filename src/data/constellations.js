@@ -92,6 +92,9 @@ const records = Object.fromEntries(constellations.map((item) => [item.id, item])
 export const skyDestinations = [
   {
     ...records.build, name: "Me", subtitle: undefined,
+    paintedStars: [...records.build.paintedStars, [458, 158, 13], records.work.paintedStars[1]],
+    connections: [[2, 3], [3, 4], [4, 5], [5, 2], [2, 6], [6, 7]],
+    lineExtensions: [{ from: 7, to: [558, -30] }],
     description: "5th year Waterloo Computer Science + Business Administration",
     note: "Always sidequesting",
     entries: [
@@ -111,6 +114,7 @@ export const skyDestinations = [
   },
   {
     ...records.gemini, name: "Builds", subtitle: "All my projects, in one place",
+    connections: [[0, 2], [2, 4], [4, 6], [1, 3], [3, 5], [5, 7], [2, 3]],
     description: "Products, hackathon builds, and experiments—from AI tools and prediction markets to games, travel, and learning.",
     note: undefined,
     entries: projects.map(({ id }) => ({ type: "project", id })),

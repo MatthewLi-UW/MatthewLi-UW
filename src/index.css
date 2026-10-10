@@ -44,16 +44,12 @@ body:has(.portfolio-experience),
 .painted-sky-feature.is-locked .painted-sky-feature-band { animation: painted-feature-glow 1.8s ease-in-out infinite alternate; }
 .painted-constellations { position: absolute; inset: 0; z-index: 0; display: block; width: 100%; height: 100%; overflow: visible; pointer-events: none; transform: translate3d(var(--interior-sky-x), var(--interior-sky-y), 0) scale(1.055); transition: transform .16s linear; }
 .painted-connection { fill: none; stroke: rgba(232,218,181,.9); stroke-width: 1.65; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 6 5; opacity: .58; transition: opacity .25s ease, stroke .25s ease, stroke-width .25s ease; }
-.painted-connection-echo { stroke: rgba(101,128,158,.68); stroke-width: .7; stroke-dasharray: 3 7; opacity: .22; }
 .painted-constellation-stars { opacity: .55; filter: brightness(1.92) saturate(1.08) drop-shadow(0 0 6px rgba(222,233,255,.5)); mix-blend-mode: screen; transition: opacity .25s ease, filter .25s ease; }
 .painted-constellation.is-discovered .painted-connection { stroke: rgba(232,218,181,.9); stroke-width: 1.65; opacity: .56; }
-.painted-constellation.is-discovered .painted-connection-echo { stroke: rgba(159,188,217,.82); opacity: .22; }
 .painted-constellation.is-discovered .painted-constellation-stars { opacity: .62; filter: brightness(2.35) saturate(1.08) drop-shadow(0 0 10px rgba(238,229,198,.72)); }
 .painted-constellation.is-detected .painted-connection { stroke: rgba(215,222,211,.86); stroke-width: 1.8; opacity: .72; }
-.painted-constellation.is-detected .painted-connection-echo { opacity: .3; }
 .painted-constellation.is-detected .painted-constellation-stars { opacity: .72; }
 .painted-constellation.is-locked .painted-connection { stroke: rgba(244,230,194,.96); stroke-width: 1.9; opacity: .78; }
-.painted-constellation.is-locked .painted-connection-echo { stroke: rgba(170,193,218,.9); opacity: .32; }
 .painted-constellation.is-locked .painted-constellation-stars { animation: painted-star-lock 1.55s ease-in-out infinite alternate; }
 .interior-architecture-layer { position: absolute; inset: 0; z-index: 1; display: block; width: 100%; height: 100%; pointer-events: none; user-select: none; }
 .interior-light-paint-layer { mix-blend-mode: screen; filter: brightness(1.72) saturate(1.18); animation: interior-firelight-a var(--lamp-duration) linear var(--lamp-delay) infinite; will-change: opacity; }

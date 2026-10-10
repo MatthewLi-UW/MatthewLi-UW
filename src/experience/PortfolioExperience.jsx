@@ -130,7 +130,7 @@ export default function PortfolioExperience({
         >
           <img
             className="interior-sky-layer"
-            src={`${import.meta.env.BASE_URL}images/observatory/interior-sky-handpainted-v3.png`}
+            src={`${import.meta.env.BASE_URL}images/observatory/interior-sky-handpainted-v5.png`}
             alt=""
             draggable="false"
           />

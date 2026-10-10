@@ -3,13 +3,13 @@ import { skyDestinations } from "../data/constellations";
 const SKY_WIDTH = 1672;
 const SKY_HEIGHT = 941;
 
-function connectionPath(stars, from, to, index, echo = false) {
+function connectionPath(stars, from, to, index) {
   const [startX, startY] = stars[from];
   const [endX, endY] = stars[to];
   const deltaX = endX - startX;
   const deltaY = endY - startY;
   const length = Math.hypot(deltaX, deltaY) || 1;
-  const bend = (4 + (index % 3) * 2) * (echo ? -0.65 : 1);
+  const bend = 4 + (index % 3) * 2;
   const middleX = (startX + endX) * 0.5 - (deltaY / length) * bend;
   const middleY = (startY + endY) * 0.5 + (deltaX / length) * bend;
   return `M ${startX} ${startY} Q ${middleX} ${middleY} ${endX} ${endY}`;
@@ -17,7 +17,7 @@ function connectionPath(stars, from, to, index, echo = false) {
 
 export default function PaintedConstellations({ signal, discovered = [] }) {
   const painted = skyDestinations.filter((item) => item.kind !== "sky-feature" && item.paintedStars);
-  const skyImage = `${import.meta.env.BASE_URL}images/observatory/interior-sky-handpainted-v3.png`;
+  const skyImage = `${import.meta.env.BASE_URL}images/observatory/interior-sky-handpainted-v5.png`;
 
   return (
     <svg
@@ -47,10 +47,10 @@ export default function PaintedConstellations({ signal, discovered = [] }) {
           <g className={`painted-constellation is-${status}${isDiscovered ? " is-discovered" : ""}`} key={item.id}>
             <g className="painted-constellation-lines">
               {item.connections.map(([from, to], index) => (
-                <g key={`${from}-${to}`}>
-                  <path className="painted-connection painted-connection-echo" d={connectionPath(item.paintedStars, from, to, index, true)} />
-                  <path className="painted-connection" d={connectionPath(item.paintedStars, from, to, index)} />
-                </g>
+                <path key={`${from}-${to}`} className="painted-connection" d={connectionPath(item.paintedStars, from, to, index)} />
+              ))}
+              {item.lineExtensions?.map(({ from, to }, index) => (
+                <path key={`extension-${index}`} className="painted-connection" d={connectionPath([item.paintedStars[from], to], 0, 1, index)} />
               ))}
             </g>
             <image
