@@ -38,7 +38,7 @@ export default function CameraRig({ mode, setMode, reducedMotion }) {
     return () => activeTween.current?.kill();
   }, [mode, reducedMotion, setMode]);
 
-  useFrame((_, delta) => {
+  useFrame(() => {
     if (mode === "field") {
       camera.position.copy(fieldPosition);
       camera.lookAt(fieldTarget);
@@ -55,7 +55,8 @@ export default function CameraRig({ mode, setMode, reducedMotion }) {
       return;
     }
 
-    camera.position.lerp(settledPosition, 1 - Math.exp(-4 * delta));
+    // Repeat visits and returning from the simple view start at the final size.
+    camera.position.copy(settledPosition);
     camera.lookAt(explorationTarget);
   });
 

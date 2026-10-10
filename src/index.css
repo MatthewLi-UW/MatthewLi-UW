@@ -23,12 +23,14 @@ button:focus-visible, a:focus-visible { outline: 1px solid #e3ded0; outline-offs
 
 .portfolio-experience { position: fixed; inset: 0; overflow: hidden; background: #07142c; touch-action: none; }
 .portfolio-experience canvas { display: block; width: 100%; height: 100%; }
-/* Keep the star reticle as the only cursor, including over interactive elements. */
+/* A transparent native cursor avoids cursor:none flashing on pointer movement. */
 html:has(.portfolio-experience),
 body:has(.portfolio-experience),
 #root:has(.portfolio-experience),
 .portfolio-experience,
-.portfolio-experience * { cursor: none !important; }
+.portfolio-experience *,
+.portfolio-experience *::before,
+.portfolio-experience *::after { cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGklEQVR4nO3BAQEAAACCIP+vbkhAAQAAAO8GECAAARlDNO4AAAAASUVORK5CYII=") 0 0, none !important; }
 .observatory-interior-art { --interior-sky-x: 0px; --interior-sky-y: 0px; position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; background: #07142c; animation: fade-in .7s ease both; }
 .observatory-interior-art img, .observatory-interior-art canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; user-select: none; }
 .observatory-interior-art .interior-sky-layer, .observatory-interior-art .painted-sky-feature-band { object-fit: fill; }
@@ -54,7 +56,7 @@ body:has(.portfolio-experience),
 .painted-constellation.is-locked .painted-connection-echo { stroke: rgba(170,193,218,.9); opacity: .32; }
 .painted-constellation.is-locked .painted-constellation-stars { animation: painted-star-lock 1.55s ease-in-out infinite alternate; }
 .interior-architecture-layer { position: absolute; inset: 0; z-index: 1; display: block; width: 100%; height: 100%; pointer-events: none; user-select: none; }
-.interior-light-paint-layer { z-index: 2; mix-blend-mode: screen; filter: brightness(1.72) saturate(1.18); mask-image: radial-gradient(ellipse 1.2% 3% at var(--lamp-x) var(--lamp-y), #000 38%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 1.2% 3% at var(--lamp-x) var(--lamp-y), #000 38%, transparent 100%); mask-repeat: no-repeat; -webkit-mask-repeat: no-repeat; animation: interior-firelight-a var(--lamp-duration) linear var(--lamp-delay) infinite; will-change: opacity; }
+.interior-light-paint-layer { mix-blend-mode: screen; filter: brightness(1.72) saturate(1.18); animation: interior-firelight-a var(--lamp-duration) linear var(--lamp-delay) infinite; will-change: opacity; }
 .interior-light-paint-layer.lamp-pattern-b { animation-name: interior-firelight-b; }
 .interior-paper-texture { position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: .11; mix-blend-mode: soft-light; background-image: repeating-radial-gradient(circle at 31% 43%, rgba(255,255,255,.13) 0 1px, transparent 1px 4px), repeating-linear-gradient(117deg, transparent 0 8px, rgba(3,8,18,.18) 9px 10px); background-size: 9px 9px, 17px 17px; }
 .landing-art { --sky-x: 0px; --sky-y: 0px; --grass-x: 0px; --grass-y: 0px; --observatory-y: 7vh; position: absolute; inset: 0; z-index: 4; width: 100%; height: 100%; padding: 0; overflow: hidden; border: 0; background: #07142c; opacity: 1; transition: opacity .72s ease 2.1s; }
@@ -118,6 +120,11 @@ body:has(.portfolio-experience),
 .explorer-hud button { pointer-events: auto; }
 .explore-intro { position: absolute; inset: 0; z-index: 4; display: flex; align-items: center; justify-content: center; padding: 24px; background: radial-gradient(circle at center, rgba(5,13,30,.55), rgba(2,7,18,.76)); color: #fff0c8; text-align: center; pointer-events: none; animation: explore-intro-fade 3.5s cubic-bezier(.45,0,.2,1) forwards; }
 .explore-intro span { max-width: 12ch; font-family: "Schoolbell", cursive; font-size: clamp(42px, 6.4vw, 88px); line-height: .93; letter-spacing: -.035em; text-shadow: 0 3px 24px rgba(0,0,0,.78); transform: rotate(-1deg); }
+.explore-hint-mobile { display: none; }
+@media (any-hover: none) and (any-pointer: coarse) {
+  .explore-hint-desktop { display: none; }
+  .explore-hint-mobile { display: block; }
+}
 .coordinates { position: absolute; top: 27px; left: 34px; display: grid; grid-template-columns: 30px 1fr; gap: 3px 9px; font-family: "Schoolbell", cursive; font-size: 15px; letter-spacing: .035em; line-height: 1.2; }
 .coordinates span { color: rgba(244,199,129,.7); }
 .coordinates strong { font-weight: 400; color: rgba(247,237,206,.82); font-variant-numeric: tabular-nums; }
@@ -246,6 +253,9 @@ body:has(.portfolio-experience),
 @keyframes sketch-arrow-bob { to { transform: translateY(5px) rotate(5deg); } }
 
 @media (max-width: 720px) {
+  .landing-building, .landing-light-paint { left: -50%; right: auto; top: 25%; bottom: auto; width: 200%; height: auto; aspect-ratio: 1672 / 941; transform: translate3d(0, var(--observatory-y), 0); }
+  .landing-building img, .landing-light-paint img { object-fit: contain; }
+  .observatory-interior-art { left: 50%; right: auto; width: max(100%, calc(100svh * 1672 / 941)); transform: translateX(-50%); }
   .hud-topline { padding: 20px; }
   .hud-topline > span:last-child { display: none; }
   .landing-center { top: 37%; }
@@ -268,6 +278,11 @@ body:has(.portfolio-experience),
   .simple-projects { grid-template-columns: 1fr; }
   .simple-projects > a:nth-child(odd), .simple-projects > article:nth-child(odd) { border-right: 1.5px solid rgba(244,199,129,.3); }
   .simple-notes > div:last-child { grid-template-columns: 1fr; }
+}
+
+@media (any-hover: none) and (any-pointer: coarse) {
+  .reticle { visibility: hidden; }
+  .mode-observatory:not(.has-selection) .reticle.is-touch-dragging { visibility: visible; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -300,7 +315,9 @@ body:has(.portfolio-experience),
 .experience-panel h2 { margin-top: 8px; font-size: 44px; }
 .has-experience-photo { display: flex; flex-direction: column; }
 .has-experience-photo > header, .has-experience-photo > .experience-timeline { position: relative; z-index: 2; flex-shrink: 0; }
-.experience-photo { position: absolute; left: 0; right: 0; bottom: 0; height: calc(100% - 380px); min-height: 240px; overflow: hidden; pointer-events: none; }
+.experience-photo { position: relative; flex: 1 0 280px; min-height: 280px; overflow: hidden; pointer-events: none; }
+.has-experience-photo .experience-more details { position: relative; }
+.has-experience-photo .experience-older { position: absolute; top: 100%; left: 0; right: 0; padding-bottom: 28px; }
 .experience-photo img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; pointer-events: none; transition: filter .3s ease, opacity .3s ease; }
 .has-experience-photo:has(.experience-more details[open]) .experience-photo img { filter: blur(8px); opacity: .35; }
 .experience-timeline { position: relative; display: flex; flex-direction: column; gap: 18px; margin: 0; padding: 24px 28px 28px 49px; list-style: none; }

@@ -3,6 +3,8 @@ import { Canvas } from "@react-three/fiber";
 import * as THREE from "three";
 import Scene from "./Scene";
 import ExplorerHUD from "../ui/ExplorerHUD";
+import ExplorationHint from "../ui/ExplorationHint";
+import { hasVisitedObservatory } from "../data/observatoryVisit";
 import ConstellationPanel from "../ui/ConstellationPanel";
 import SimpleView from "../ui/SimpleView";
 import LivingLanding from "../ui/LivingLanding";
@@ -41,11 +43,16 @@ export default function PortfolioExperience({
   const aimRef = useRef({ yaw: 0, pitch: 0.05, direction: new THREE.Vector3(0, 0, -1) });
   const dragRef = useRef({ active: false, moved: false, x: 0, y: 0 });
   const reticleRef = useRef(null);
+  const [touchDragging, setTouchDragging] = useState(false);
   const [signal, setSignal] = useState({ id: null, status: "searching", alignment: 0 });
   const [aim, setAim] = useState({ yaw: 0, pitch: 0.05 });
   const [simpleView, setSimpleView] = useState(false);
   const webglSupported = useMemo(supportsWebGL, []);
   const reducedMotion = useMemo(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches, []);
+
+  const changeMode = useCallback((nextMode) => {
+    setMode(nextMode === "entering" && hasVisitedObservatory() ? "observatory" : nextMode);
+  }, [setMode]);
 
   const markDiscovered = useCallback((id) => {
     if (!id) return;
@@ -77,6 +84,7 @@ export default function PortfolioExperience({
     if (mode !== "observatory" || selectedConstellation) return;
     if (event.target.closest?.("button, a")) return;
     dragRef.current = { active: true, moved: false, x: event.clientX, y: event.clientY };
+    setTouchDragging(false);
     event.currentTarget.setPointerCapture?.(event.pointerId);
     setPointer(event);
   };
@@ -86,6 +94,7 @@ export default function PortfolioExperience({
     if (mode !== "observatory" || selectedConstellation || !dragRef.current.active) return;
     if (Math.hypot(event.clientX - dragRef.current.x, event.clientY - dragRef.current.y) > 7) {
       dragRef.current.moved = true;
+      if (event.pointerType !== "mouse") setTouchDragging(true);
     }
   };
 
@@ -93,6 +102,7 @@ export default function PortfolioExperience({
     if (!dragRef.current.active) return;
     const wasTap = !dragRef.current.moved;
     dragRef.current.active = false;
+    setTouchDragging(false);
     event.currentTarget.releasePointerCapture?.(event.pointerId);
     if (wasTap && signal.status === "locked") openConstellation(signal.id);
   };
@@ -106,7 +116,8 @@ export default function PortfolioExperience({
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={onPointerUp}
-      onPointerCancel={() => { dragRef.current.active = false; }}
+      onPointerCancel={() => { dragRef.current.active = false; setTouchDragging(false); }}
+      onLostPointerCapture={() => { dragRef.current.active = false; setTouchDragging(false); }}
     >
       {mode !== "field" && (
         <div
@@ -131,27 +142,37 @@ export default function PortfolioExperience({
             preserveAspectRatio="xMidYMid slice"
             aria-hidden="true"
           >
+            <defs>
+              <radialGradient id="torch-light-fade">
+                <stop offset="38%" stopColor="white" />
+                <stop offset="100%" stopColor="white" stopOpacity="0" />
+              </radialGradient>
+              {interiorLamps.map((lamp, index) => (
+                <mask key={index} id={`torch-light-${index}`} maskUnits="userSpaceOnUse" x="0" y="0" width="1672" height="941">
+                  <ellipse cx={lamp.x * 16.72} cy={lamp.y * 9.41} rx="20.064" ry="28.23" fill="url(#torch-light-fade)" />
+                </mask>
+              ))}
+            </defs>
             <image
               href={`${import.meta.env.BASE_URL}images/observatory/interior-architecture-handpainted-v1.png`}
               width="1672"
               height="941"
             />
+            {interiorLamps.map((lamp, index) => (
+              <image
+                key={index}
+                className={`interior-light-paint-layer lamp-pattern-${lamp.pattern}`}
+                href={`${import.meta.env.BASE_URL}images/observatory/interior-architecture-handpainted-v1.png`}
+                width="1672"
+                height="941"
+                mask={`url(#torch-light-${index})`}
+                style={{
+                  "--lamp-duration": `${lamp.duration}s`,
+                  "--lamp-delay": `${lamp.delay}s`,
+                }}
+              />
+            ))}
           </svg>
-          {interiorLamps.map((lamp, index) => (
-            <img
-              key={index}
-              className={`interior-light-paint-layer lamp-pattern-${lamp.pattern}`}
-              src={`${import.meta.env.BASE_URL}images/observatory/interior-architecture-handpainted-v1.png`}
-              alt=""
-              draggable="false"
-              style={{
-                "--lamp-x": `${lamp.x}%`,
-                "--lamp-y": `${lamp.y}%`,
-                "--lamp-duration": `${lamp.duration}s`,
-                "--lamp-delay": `${lamp.delay}s`,
-              }}
-            />
-          ))}
         </div>
       )}
       <Canvas
@@ -166,7 +187,7 @@ export default function PortfolioExperience({
       >
         <Scene
           mode={mode}
-          setMode={setMode}
+          setMode={changeMode}
           pointerRef={pointerRef}
           aimRef={aimRef}
           onSignalChange={handleSignal}
@@ -174,22 +195,18 @@ export default function PortfolioExperience({
           reducedMotion={reducedMotion}
         />
       </Canvas>
-      <div ref={reticleRef} className={`reticle ${signal.status}`} aria-hidden="true" />
+      <div ref={reticleRef} className={`reticle ${signal.status}${touchDragging ? " is-touch-dragging" : ""}`} aria-hidden="true" />
 
       {mode === "observatory" && !selectedConstellation && (
         <SkyMarkers signal={signal} aim={aim} onOpen={openConstellation} />
       )}
       {mode === "observatory" && <span className="interior-paper-texture" aria-hidden="true" />}
-      {mode === "observatory" && (
-        <div className="explore-intro" role="status" aria-label="Move your mouse to explore">
-          <span>Move your mouse to explore</span>
-        </div>
-      )}
+      {mode === "observatory" && <ExplorationHint />}
 
       {mode !== "observatory" && (
         <LivingLanding
           entering={mode === "entering"}
-          onEnter={() => setMode("entering")}
+          onEnter={() => changeMode("entering")}
           onSimpleView={() => setSimpleView(true)}
         />
       )}
