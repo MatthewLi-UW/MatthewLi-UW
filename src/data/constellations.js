@@ -13,8 +13,8 @@ export const constellations = [
     note: "Each constellation holds one part of the story. This one keeps the current coordinates and the places to find the work outside the observatory.",
     entries: [
       { type: "thought", label: "RIGHT NOW", title: "Security agents at Microsoft", text: "I’m building the customer-facing agent integration that turns impersonation, malicious-URL, and weaponizable-file signals into one natural-language investigation workflow for Teams administrators." },
-      { type: "link", label: "CODE", title: "GitHub", text: "Projects, experiments, and the repositories behind several constellations.", url: "https://github.com/MatthewLi-UW" },
-      { type: "link", label: "CONTACT", title: "LinkedIn", text: "Work updates, build stories, and the occasional lesson learned the hard way.", url: "https://www.linkedin.com/in/matthew-li-mfl/" },
+      { type: "social", title: "GitHub", url: "https://github.com/MatthewLi-UW", icon: "github" },
+      { type: "social", title: "LinkedIn", url: "https://www.linkedin.com/in/matthew-li-mfl/", icon: "linkedin" },
     ],
   },
   {
@@ -69,7 +69,7 @@ export const constellations = [
     entries: [
       { type: "thought", label: "ONE WEEKEND", title: "TWICE on Friday, Hack Canada on Sunday", text: "I lost my voice at the concert, then nearly lost it again helping Slicefund win at Hack Canada among 800+ hackers from 139 schools and 26 countries." },
       { type: "thought", label: "COMMUNITY", title: "Judging JAMHacks 10", text: "I helped judge projects from 200+ high-school hackers and left impressed by how confidently they were already shipping, pitching, and teaching through software." },
-      { type: "thought", label: "TINY FLEX", title: "180 words per minute", text: "It is not a particularly important skill, but it does make long build nights a little more efficient." },
+      { type: "thought", label: "TINY FLEX · TYPING SPEED", title: "180 words per minute", text: "It is not a particularly important skill, but it does make long build nights a little more efficient." },
     ],
   },
   {
@@ -91,15 +91,16 @@ const records = Object.fromEntries(constellations.map((item) => [item.id, item])
 // Keep the painted layout while giving each destination one complete section.
 export const skyDestinations = [
   {
-    ...records.build, name: "Me", subtitle: "The person behind the projects",
-    description: records.origin.description,
-    note: records.origin.note,
+    ...records.build, name: "Me", subtitle: undefined,
+    description: "I'm Matthew, a University of Waterloo Computer Science and Business Administration double-degree student",
+    note: "I graduate in 2027 after a long 5 years in the trenches. I started coding in first year and have been making up for lost time ever since.",
     entries: [
-      ...records.origin.entries,
-      ...records.life.entries,
-      ...records["milky-way"].entries.filter((entry) => entry.type === "link"),
-      { type: "link", label: "SAY HELLO", title: "Email me", text: "Reach me at mf5li@uwaterloo.ca.", url: "mailto:mf5li@uwaterloo.ca" },
+      ...records.origin.entries.filter(({ label }) => !["EDUCATION", "COURSEWORK", "STARTING POINT"].includes(label)),
+      ...records.life.entries.filter(({ label }) => !["ONE WEEKEND", "COMMUNITY"].includes(label)),
+      ...records["milky-way"].entries.filter((entry) => entry.type === "social"),
+      { type: "social", title: "mf5li@uwaterloo.ca", url: "mailto:mf5li@uwaterloo.ca", icon: "email" },
     ],
+    hideRecordMeta: true,
     marker: [330, 310], number: "01",
   },
   {
