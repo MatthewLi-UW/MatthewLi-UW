@@ -194,7 +194,7 @@ export default function PortfolioExperience({
         />
       )}
       {mode === "observatory" && !selectedConstellation && (
-        <ExplorerHUD signal={signal} aim={aim} onOpen={openConstellation} onSimpleView={() => setSimpleView(true)} />
+        <ExplorerHUD aim={aim} onSimpleView={() => setSimpleView(true)} />
       )}
       <ConstellationPanel
         constellation={selectedConstellation ? constellationById[selectedConstellation] : null}

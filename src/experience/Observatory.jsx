@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
@@ -37,11 +37,6 @@ export default function Observatory({ mode, onEnter }) {
     if (warmLightRef.current) warmLightRef.current.intensity = 5.2 * facadeFade;
   });
 
-  useEffect(() => {
-    if (!isField || !hovered) document.body.style.cursor = "";
-    return () => { document.body.style.cursor = ""; };
-  }, [hovered, isField]);
-
   const handleEnter = (event) => {
     event.stopPropagation();
     if (isField) onEnter();
@@ -54,12 +49,10 @@ export default function Observatory({ mode, onEnter }) {
         event.stopPropagation();
         if (isField) {
           setHovered(true);
-          document.body.style.cursor = "pointer";
         }
       }}
       onPointerLeave={() => {
         setHovered(false);
-        document.body.style.cursor = "";
       }}
     >
       <mesh position={[0, 0.62, 0]} castShadow receiveShadow>

@@ -92,11 +92,10 @@ const records = Object.fromEntries(constellations.map((item) => [item.id, item])
 export const skyDestinations = [
   {
     ...records.build, name: "Me", subtitle: undefined,
-    description: "I'm Matthew, a University of Waterloo Computer Science and Business Administration double-degree student",
-    note: "I graduate in 2027 after a long 5 years in the trenches. I started coding in first year and have been making up for lost time ever since.",
+    description: "5th year Waterloo Computer Science + Business Administration",
+    note: "Always sidequesting",
     entries: [
       ...records.origin.entries.filter(({ label }) => !["EDUCATION", "COURSEWORK", "STARTING POINT"].includes(label)),
-      ...records.life.entries.filter(({ label }) => !["ONE WEEKEND", "COMMUNITY"].includes(label)),
       ...records["milky-way"].entries.filter((entry) => entry.type === "social"),
       { type: "social", title: "mf5li@uwaterloo.ca", url: "mailto:mf5li@uwaterloo.ca", icon: "email" },
     ],

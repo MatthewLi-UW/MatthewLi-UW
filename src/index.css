@@ -23,8 +23,12 @@ button:focus-visible, a:focus-visible { outline: 1px solid #e3ded0; outline-offs
 
 .portfolio-experience { position: fixed; inset: 0; overflow: hidden; background: #07142c; touch-action: none; }
 .portfolio-experience canvas { display: block; width: 100%; height: 100%; }
-.mode-observatory { cursor: none; }
-.mode-observatory.has-selection { cursor: auto; }
+/* Keep the star reticle as the only cursor, including over interactive elements. */
+html:has(.portfolio-experience),
+body:has(.portfolio-experience),
+#root:has(.portfolio-experience),
+.portfolio-experience,
+.portfolio-experience * { cursor: none !important; }
 .observatory-interior-art { --interior-sky-x: 0px; --interior-sky-y: 0px; position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; background: #07142c; animation: fade-in .7s ease both; }
 .observatory-interior-art img, .observatory-interior-art canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; user-select: none; }
 .observatory-interior-art .interior-sky-layer, .observatory-interior-art .painted-sky-feature-band { object-fit: fill; }
@@ -131,7 +135,7 @@ button:focus-visible, a:focus-visible { outline: 1px solid #e3ded0; outline-offs
 .signal-card button { margin-top: 12px; padding: 7px 0; border: 0; border-bottom: 1px solid rgba(232,236,235,.4); background: transparent; color: var(--paper); text-transform: uppercase; font-size: 8px; letter-spacing: .18em; cursor: pointer; }
 
 .panel-backdrop { position: absolute; inset: 0; z-index: 10; display: flex; justify-content: flex-end; padding: 16px; background: rgba(2,7,18,.46); backdrop-filter: blur(4px); animation: fade-in .3s ease both; pointer-events: auto; cursor: default; }
-.constellation-panel { position: relative; width: min(560px, 100%); height: 100%; overflow-y: auto; border: 2px solid rgba(247,232,191,.58); border-radius: 18px 12px 16px 10px; background-color: rgba(14,27,51,.97); background-image: repeating-radial-gradient(circle at 23% 31%, rgba(255,244,210,.055) 0 1px, transparent 1px 5px), repeating-linear-gradient(96deg, transparent 0 23px, rgba(74,108,151,.055) 24px 25px); box-shadow: -18px 12px 0 rgba(4,11,25,.28), -26px 0 72px rgba(0,0,0,.38); color: #f6eac7; font-family: "Patrick Hand", cursive; animation: panel-in .55s cubic-bezier(.2,.8,.2,1) both; scrollbar-width: thin; scrollbar-color: rgba(244,199,129,.52) transparent; }
+.constellation-panel { position: relative; width: min(560px, 100%); height: 100%; overflow-y: auto; border: 2px solid rgba(247,232,191,.58); border-radius: 18px 12px 16px 10px; background-color: rgba(14,27,51,.97); background-image: repeating-radial-gradient(circle at 23% 31%, rgba(255,244,210,.055) 0 1px, transparent 1px 5px), repeating-linear-gradient(96deg, transparent 0 23px, rgba(74,108,151,.055) 24px 25px); box-shadow: -10px 8px 28px rgba(4,11,25,.18), -22px 0 64px rgba(0,0,0,.28); color: #f6eac7; font-family: "Patrick Hand", cursive; animation: panel-in .55s cubic-bezier(.2,.8,.2,1) both; scrollbar-width: thin; scrollbar-color: rgba(244,199,129,.52) transparent; }
 .constellation-panel::before { content: ""; position: absolute; top: 11px; left: 24px; width: 48px; height: 19px; border-top: 2px solid rgba(244,199,129,.45); border-radius: 50%; transform: rotate(-7deg); pointer-events: none; }
 .constellation-panel button, .constellation-panel a { cursor: pointer; }
 .constellation-panel > header { display: flex; justify-content: space-between; gap: 24px; padding: 35px 34px 29px; border-bottom: 2px dashed rgba(247,232,191,.25); }
@@ -145,7 +149,21 @@ button:focus-visible, a:focus-visible { outline: 1px solid #e3ded0; outline-offs
 .panel-intro { position: relative; padding: 29px 34px 31px; border-bottom: 2px dashed rgba(247,232,191,.22); }
 .panel-intro::after { content: "✎"; position: absolute; right: 31px; bottom: 15px; color: rgba(244,199,129,.38); font-family: "Schoolbell", cursive; font-size: 23px; transform: rotate(12deg); }
 .panel-intro p { max-width: 39ch; margin: 0 0 14px; color: #f6eac7; font-family: "Patrick Hand", cursive; font-size: 21px; line-height: 1.28; }
-.me-panel .panel-intro p { max-width: 48ch; }
+.me-panel .panel-intro { padding: clamp(12px, 2vh, 20px) 24px; }
+.me-panel .panel-intro p { max-width: none; margin-bottom: 8px; font-size: 20px; }
+.me-panel .panel-intro p:last-child { margin-bottom: 0; }
+.me-panel { display: flex; flex-direction: column; }
+.me-panel > header { padding: clamp(14px, 2.5vh, 24px) 24px; }
+.me-panel h2 { margin-top: 8px; font-size: 44px; }
+.me-panel .record-list { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 24px; }
+.me-panel .social-entry { margin: 0; padding: 7px 10px; font-size: 15px; }
+.me-panel > header, .me-panel .panel-intro, .me-panel .record-list { flex-shrink: 0; }
+.me-photo-scene { position: relative; flex: 1 0 180px; min-height: 180px; overflow: hidden; isolation: isolate; }
+.me-photo-sparkles { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.me-photo-sparkles span { position: absolute; color: #ffe388; font-size: var(--sparkle-size); line-height: 1; text-shadow: 0 0 6px rgba(255,218,100,.8), 0 0 18px rgba(255,200,65,.4); animation: me-star-shimmer 4.8s ease-in-out var(--sparkle-delay) infinite; }
+@keyframes me-star-shimmer { 0%, 100% { opacity: .35; transform: scale(.75) rotate(-8deg); } 50% { opacity: 1; transform: scale(1.15) rotate(8deg); } }
+@media (prefers-reduced-motion: reduce) { .me-photo-sparkles span { animation: none; opacity: .75; } }
+.me-photo-composition { position: absolute; inset: 0; z-index: 1; display: block; width: 100%; height: 100%; pointer-events: none; }
 .panel-intro p + p { color: rgba(222,224,211,.7); font-family: "Patrick Hand", cursive; font-size: 16px; line-height: 1.45; }
 .record-list { padding: 18px 25px 34px; }
 .record-entry { position: relative; display: block; margin: 10px 0; padding: 20px 18px 21px; border: 1.5px solid rgba(236,224,190,.22); border-radius: 12px 8px 13px 7px; background: rgba(255,248,218,.035); color: inherit; text-decoration: none; transition: transform .2s ease, border-color .2s ease, background .2s ease; }
@@ -174,6 +192,14 @@ button:focus-visible, a:focus-visible { outline: 1px solid #e3ded0; outline-offs
 .simple-close { border: 0; border-bottom: 1px solid rgba(244,199,129,.5); padding: 4px 0; background: transparent; color: #f4c781; font-family: "Schoolbell", cursive; font-size: 16px; letter-spacing: .02em; cursor: pointer; }
 .simple-view main, .simple-footer { width: min(1180px, 92vw); margin: 0 auto; }
 .simple-hero { position: relative; min-height: 76vh; display: flex; flex-direction: column; justify-content: center; padding: 80px 0; border-bottom: 2px dashed rgba(244,199,129,.25); }
+.simple-about { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 32px; padding: 55px 0; border-bottom: 2px dashed rgba(244,199,129,.25); }
+.simple-about h1 { margin: 0 0 24px; color: #fff0c8; font-family: "Schoolbell", cursive; font-size: clamp(40px, 5vw, 64px); line-height: 1.1; font-weight: 400; }
+.simple-about p { margin: 0 0 12px; color: rgba(235,232,211,.82); font-size: 21px; line-height: 1.4; }
+.simple-socials { display: flex; flex-wrap: wrap; margin-top: 24px; }
+.simple-about .me-photo-scene { height: 400px; min-width: 0; }
+.simple-experience-content { min-width: 0; }
+.simple-section > .experience-timeline { min-width: 0; }
+@media (max-width: 720px) { .simple-about { grid-template-columns: 1fr; gap: 10px; padding: 35px 0; } .simple-about .me-photo-scene { height: 320px; } }
 .simple-star-doodle { position: absolute; top: 35px; right: 0; width: clamp(110px, 20vw, 240px); color: #f4c781; opacity: .65; pointer-events: none; }
 .simple-hero > span, .simple-section-title span { font-family: "Schoolbell", cursive; font-size: 13px; letter-spacing: .06em; color: #f4c781; }
 .simple-hero > span { position: relative; max-width: 70%; }
@@ -270,4 +296,48 @@ button:focus-visible, a:focus-visible { outline: 1px solid #e3ded0; outline-offs
 .experience-heading h3 { font-size: 24px; }
 .experience-heading h4 { margin-bottom: 0; }
 .simple-experiences .company-logo { float: right; margin: 0 0 14px 16px; }
+.experience-panel > header { padding: 22px 28px; }
+.experience-panel h2 { margin-top: 8px; font-size: 44px; }
+.has-experience-photo { display: flex; flex-direction: column; }
+.has-experience-photo > header, .has-experience-photo > .experience-timeline { position: relative; z-index: 2; flex-shrink: 0; }
+.experience-photo { position: absolute; left: 0; right: 0; bottom: 0; height: calc(100% - 380px); min-height: 240px; overflow: hidden; pointer-events: none; }
+.experience-photo img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; pointer-events: none; transition: filter .3s ease, opacity .3s ease; }
+.has-experience-photo:has(.experience-more details[open]) .experience-photo img { filter: blur(8px); opacity: .35; }
+.experience-timeline { position: relative; display: flex; flex-direction: column; gap: 18px; margin: 0; padding: 24px 28px 28px 49px; list-style: none; }
+.experience-timeline::before { content: ""; position: absolute; left: 29px; top: 45px; bottom: 48px; width: 1px; background: linear-gradient(transparent, rgba(244,199,129,.45) 8%, rgba(244,199,129,.45) 92%, transparent); }
+.experience-stop { position: relative; display: flex; align-items: center; gap: 18px; min-height: 47px; }
+.experience-stop::before { content: ""; position: absolute; left: -23px; top: 20px; width: 7px; height: 7px; border-radius: 50%; background: #f4c781; box-shadow: 0 0 8px rgba(244,199,129,.25); }
+.experience-stop img { flex: 0 0 46px; width: 46px; height: 40px; object-fit: contain; }
+.experience-stop-veridocx img { flex-basis: 40px; width: 40px; margin-inline: 3px; object-fit: contain; clip-path: polygon(23.3% 6.5%, 93.2% 6.5%, 93.2% 76%, 73.5% 76%, 73.5% 93.8%, 33.6% 93.8%, 4.8% 65%, 4.8% 24.7%, 23.3% 24.7%); }
+.experience-stop-osfi img { filter: brightness(0) invert(1); opacity: .9; }
+.experience-stop h3 { margin: 0 0 3px; font-family: "Schoolbell", cursive; font-size: 24px; font-weight: 400; line-height: 1.1; color: #fff0c8; }
+.experience-stop p { margin: 0; font-size: 16px; line-height: 1.25; color: rgba(235,232,211,.72); }
+.experience-inline-link { color: #f4c781; text-decoration: none; }
+.experience-inline-link:hover { color: #ffe388; text-decoration: underline; text-underline-offset: 3px; }
+.experience-more summary { display: flex; align-items: center; gap: 7px; width: fit-content; color: #f4c781; font-family: "Schoolbell", cursive; font-size: 17px; list-style: none; }
+.experience-more summary::-webkit-details-marker { display: none; }
+.experience-more summary:hover { color: #fff0c8; }
+.experience-more summary:focus-visible { outline: 1px solid #e3ded0; outline-offset: 4px; }
+.experience-more summary svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s ease; }
+.experience-more details[open] summary svg { transform: rotate(180deg); }
+.show-less-label, .experience-more details[open] .show-more-label { display: none; }
+.experience-more details[open] .show-less-label { display: inline; }
+.experience-older { display: flex; flex-direction: column; gap: 18px; padding: 20px 0 0; margin: 0; list-style: none; }
+.experience-press-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 6px; }
+.experience-press-links a { display: inline-flex; align-items: center; gap: 4px; color: #f4c781; font-family: "Schoolbell", cursive; font-size: 13px; text-decoration: none; }
+.experience-press-links a:hover { color: #fff0c8; }
+.experience-press-links svg { width: 14px; height: 14px; }
+.project-timeline { gap: 10px; padding-top: 18px; }
+.project-stop { gap: 12px; min-height: 42px; }
+.project-stop img { height: 36px; }
+.project-stop h3 { font-size: 21px; }
+.project-stop p { font-size: 14px; }
+.project-award { display: flex; align-items: center; gap: 5px; margin-top: 4px; color: #f4c781; font-family: "Schoolbell", cursive; font-size: 12px; line-height: 1.2; }
+.trophy-doodle { width: 18px; height: 20px; flex-shrink: 0; transform: rotate(-6deg); }
+.project-stop-copy { flex: 1; min-width: 0; }
+.timeline-project-mark { flex: 0 0 46px; text-align: center; font-family: "Schoolbell", cursive; font-size: 23px; color: #f4c781; }
+.project-stop-links { display: flex; gap: 8px; flex-shrink: 0; }
+.project-stop-links a { display: flex; align-items: center; justify-content: center; width: 26px; height: 30px; color: #f4c781; text-decoration: none; font-size: 24px; }
+.project-stop-links a:hover { color: #fff0c8; }
+.project-stop-links svg { width: 20px; height: 20px; fill: currentColor; }
 @media (max-width: 720px) { .simple-experiences article { grid-template-columns: 1fr; gap: 12px; } .simple-close { font-size: 14px; } }
