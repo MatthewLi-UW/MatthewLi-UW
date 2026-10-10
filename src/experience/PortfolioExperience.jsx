@@ -82,9 +82,9 @@ export default function PortfolioExperience({
   };
 
   const onPointerMove = (event) => {
-    if (mode !== "observatory" || selectedConstellation) return;
     if (event.pointerType === "mouse" || dragRef.current.active) setPointer(event);
-    if (dragRef.current.active && Math.hypot(event.clientX - dragRef.current.x, event.clientY - dragRef.current.y) > 7) {
+    if (mode !== "observatory" || selectedConstellation || !dragRef.current.active) return;
+    if (Math.hypot(event.clientX - dragRef.current.x, event.clientY - dragRef.current.y) > 7) {
       dragRef.current.moved = true;
     }
   };
@@ -174,6 +174,7 @@ export default function PortfolioExperience({
           reducedMotion={reducedMotion}
         />
       </Canvas>
+      <div ref={reticleRef} className={`reticle ${signal.status}`} aria-hidden="true" />
 
       {mode === "observatory" && !selectedConstellation && (
         <SkyMarkers signal={signal} aim={aim} onOpen={openConstellation} />
@@ -193,7 +194,7 @@ export default function PortfolioExperience({
         />
       )}
       {mode === "observatory" && !selectedConstellation && (
-        <ExplorerHUD ref={reticleRef} signal={signal} aim={aim} onOpen={openConstellation} onSimpleView={() => setSimpleView(true)} />
+        <ExplorerHUD signal={signal} aim={aim} onOpen={openConstellation} onSimpleView={() => setSimpleView(true)} />
       )}
       <ConstellationPanel
         constellation={selectedConstellation ? constellationById[selectedConstellation] : null}

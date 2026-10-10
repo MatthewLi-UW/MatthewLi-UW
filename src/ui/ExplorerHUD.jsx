@@ -1,4 +1,3 @@
-import { forwardRef } from "react";
 import { constellationById } from "../data/constellations";
 
 function formatRa(yaw) {
@@ -12,7 +11,7 @@ function formatDec(pitch) {
   return `${value >= 0 ? "+" : "−"}${String(Math.abs(value)).padStart(2, "0")}°`;
 }
 
-const ExplorerHUD = forwardRef(function ExplorerHUD({ signal, aim, onOpen, onSimpleView }, reticleRef) {
+export default function ExplorerHUD({ signal, aim, onOpen, onSimpleView }) {
   const target = signal.id ? constellationById[signal.id] : null;
 
   return (
@@ -24,7 +23,6 @@ const ExplorerHUD = forwardRef(function ExplorerHUD({ signal, aim, onOpen, onSim
         <span>RA</span><strong>{formatRa(aim.yaw)}</strong>
         <span>DEC</span><strong>{formatDec(aim.pitch)}</strong>
       </div>
-      <div ref={reticleRef} className={`reticle ${signal.status}`} aria-hidden="true" />
       {target && <div className="signal-card is-active" aria-live="polite">
         <span>{signal.status === "locked" ? "LOCKED ON" : target.kind === "sky-feature" ? "PAINTED FEATURE" : "SIGNAL DETECTED"}</span>
         <strong>{target.name}</strong><small>{target.subtitle}</small>
@@ -34,6 +32,4 @@ const ExplorerHUD = forwardRef(function ExplorerHUD({ signal, aim, onOpen, onSim
       </div>}
     </div>
   );
-});
-
-export default ExplorerHUD;
+}

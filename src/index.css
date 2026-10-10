@@ -117,7 +117,7 @@ button:focus-visible, a:focus-visible { outline: 1px solid #e3ded0; outline-offs
 .coordinates { position: absolute; top: 27px; left: 34px; display: grid; grid-template-columns: 30px 1fr; gap: 3px 9px; font-family: "Schoolbell", cursive; font-size: 15px; letter-spacing: .035em; line-height: 1.2; }
 .coordinates span { color: rgba(244,199,129,.7); }
 .coordinates strong { font-weight: 400; color: rgba(247,237,206,.82); font-variant-numeric: tabular-nums; }
-.reticle { position: absolute; left: 0; top: 0; width: 28px; height: 28px; transform: translate3d(50vw, 50vh, 0) translate(-50%, -50%); transition: width .22s ease, height .22s ease, filter .22s ease; will-change: transform; }
+.reticle { position: fixed; left: 0; top: 0; z-index: 20; width: 28px; height: 28px; transform: translate3d(50vw, 50vh, 0) translate(-50%, -50%); transition: width .22s ease, height .22s ease, filter .22s ease; will-change: transform; pointer-events: none; }
 .reticle::before { content: ""; position: absolute; inset: 2px; background: rgba(225,232,233,.72); clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 94%, 50% 72%, 21% 94%, 32% 57%, 2% 35%, 39% 35%); filter: drop-shadow(0 0 4px rgba(192,219,238,.48)); animation: reticle-star-spin 5.5s linear infinite; }
 .reticle.detected { width: 32px; height: 32px; filter: brightness(1.18); }
 .reticle.detected::before { background: rgba(236,239,231,.88); animation-duration: 4s; }
