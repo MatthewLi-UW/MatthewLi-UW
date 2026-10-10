@@ -145,6 +145,7 @@ button:focus-visible, a:focus-visible { outline: 1px solid #e3ded0; outline-offs
 .panel-intro { position: relative; padding: 29px 34px 31px; border-bottom: 2px dashed rgba(247,232,191,.22); }
 .panel-intro::after { content: "✎"; position: absolute; right: 31px; bottom: 15px; color: rgba(244,199,129,.38); font-family: "Schoolbell", cursive; font-size: 23px; transform: rotate(12deg); }
 .panel-intro p { max-width: 39ch; margin: 0 0 14px; color: #f6eac7; font-family: "Patrick Hand", cursive; font-size: 21px; line-height: 1.28; }
+.me-panel .panel-intro p { max-width: 48ch; }
 .panel-intro p + p { color: rgba(222,224,211,.7); font-family: "Patrick Hand", cursive; font-size: 16px; line-height: 1.45; }
 .record-list { padding: 18px 25px 34px; }
 .record-entry { position: relative; display: block; margin: 10px 0; padding: 20px 18px 21px; border: 1.5px solid rgba(236,224,190,.22); border-radius: 12px 8px 13px 7px; background: rgba(255,248,218,.035); color: inherit; text-decoration: none; transition: transform .2s ease, border-color .2s ease, background .2s ease; }
@@ -156,6 +157,10 @@ button:focus-visible, a:focus-visible { outline: 1px solid #e3ded0; outline-offs
 .record-entry p { max-width: 45ch; margin: 0 0 11px; color: rgba(224,226,215,.75); font-size: 15px; line-height: 1.4; }
 .record-entry small { color: rgba(244,199,129,.6); font-family: "Schoolbell", cursive; font-size: 11px; letter-spacing: .035em; }
 .thought-entry > b { position: absolute; top: 20px; right: 18px; color: #f4c781; font-family: "Schoolbell", cursive; font-weight: 400; }
+.social-entry { display: inline-flex; align-items: center; gap: 9px; margin: 5px 7px 12px 0; padding: 9px 13px 9px 10px; border: 1.5px solid rgba(244,199,129,.38); border-radius: 50px 42px 47px 40px; color: #fff0c8; text-decoration: none; font-family: "Schoolbell", cursive; font-size: 16px; transform: rotate(-1deg); transition: border-color .2s ease, background .2s ease, transform .2s ease; }
+.social-entry.linkedin { transform: rotate(1deg); }
+.social-entry:hover { border-color: #f4c781; background: rgba(255,248,218,.08); transform: translateY(-2px) rotate(0); }
+.social-entry svg { width: 22px; height: 22px; fill: #f4c781; }
 .project-entry { display: grid; grid-template-columns: 62px 1fr 16px; gap: 16px; align-items: start; }
 .project-entry img { width: 60px; height: 60px; margin-top: 2px; border: 2px solid rgba(247,232,191,.38); border-radius: 11px 6px 10px 7px; background: #d9d9d5; object-fit: cover; filter: saturate(.66) contrast(.92); transform: rotate(-1.5deg); }
 .project-mark { display: grid; width: 60px; height: 60px; margin-top: 2px; place-items: center; border: 2px dashed rgba(244,199,129,.5); border-radius: 50% 45% 52% 44%; background: rgba(116,143,173,.14); color: #f4c781; font-family: "Schoolbell", cursive; font-size: 19px; letter-spacing: .04em; transform: rotate(-3deg); }
@@ -255,6 +260,7 @@ button:focus-visible, a:focus-visible { outline: 1px solid #e3ded0; outline-offs
 .sky-marker-medallion > span { position: relative; font-family: "Schoolbell", cursive; font-size: clamp(24px, 2.4vw, 32px); line-height: 1; transform: rotate(-5deg); }
 .sky-marker-name { font-family: "Schoolbell", cursive; font-size: clamp(15px, 1.5vw, 20px); letter-spacing: .035em; transform: rotate(-2deg); }
 .sky-marker:hover .sky-marker-medallion, .sky-marker:focus-visible .sky-marker-medallion, .sky-marker.is-active .sky-marker-medallion { transform: rotate(6deg) scale(1.08); filter: drop-shadow(0 0 16px rgba(244,199,129,.55)); }
+.sky-marker:focus:not(:focus-visible) { outline: none; }
 .sky-marker:focus-visible { outline: 2px dashed #fff0c8; outline-offset: 2px; border-radius: 45%; }
 
 .experience-heading { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
