@@ -92,9 +92,8 @@ const records = Object.fromEntries(constellations.map((item) => [item.id, item])
 export const skyDestinations = [
   {
     ...records.build, name: "Me", subtitle: undefined,
-    paintedStars: [...records.build.paintedStars, [458, 158, 13], records.work.paintedStars[1]],
-    connections: [[2, 3], [3, 4], [4, 5], [5, 2], [2, 6], [6, 7]],
-    lineExtensions: [{ from: 7, to: [558, -30] }],
+    paintedStars: [[537, 278, 12], [152, 256, 18], [186, 191, 18], [428, 417, 15], [468, 308, 12], [385, 278, 12], [227, 254, 10], [496, 299, 10], [409, 486, 15], [255, 347, 10], [157, 317, 10], [273, 437, 10], [328, 140, 14], [318, 364, 10], [187, 273, 12], [454, 347, 10], [210, 191, 8], [275, 211, 12]],
+    connections: [[2, 16], [16, 17], [17, 12], [17, 6], [6, 14], [14, 1], [14, 10], [14, 9], [9, 11], [11, 8], [9, 13], [13, 3], [17, 5], [5, 15], [5, 4], [4, 7], [7, 0]],
     description: "5th year Waterloo Computer Science + Business Administration",
     note: "Always sidequesting",
     entries: [
@@ -114,7 +113,8 @@ export const skyDestinations = [
   },
   {
     ...records.gemini, name: "Builds", subtitle: "All my projects, in one place",
-    connections: [[0, 2], [2, 4], [4, 6], [1, 3], [3, 5], [5, 7], [2, 3]],
+    paintedStars: [[1070, 125, 18], [1190, 153, 16], [1260, 205, 16], [1330, 248, 18], [1525, 303, 18], [1465, 425, 16], [1337, 378, 16]],
+    connections: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 3]],
     description: "Products, hackathon builds, and experiments—from AI tools and prediction markets to games, travel, and learning.",
     note: undefined,
     entries: projects.map(({ id }) => ({ type: "project", id })),

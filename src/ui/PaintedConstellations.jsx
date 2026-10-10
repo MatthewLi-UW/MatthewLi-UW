@@ -17,7 +17,7 @@ function connectionPath(stars, from, to, index) {
 
 export default function PaintedConstellations({ signal, discovered = [] }) {
   const painted = skyDestinations.filter((item) => item.kind !== "sky-feature" && item.paintedStars);
-  const skyImage = `${import.meta.env.BASE_URL}images/observatory/interior-sky-handpainted-v5.png`;
+  const skyImage = `${import.meta.env.BASE_URL}images/observatory/interior-sky-handpainted-v10.png`;
 
   return (
     <svg

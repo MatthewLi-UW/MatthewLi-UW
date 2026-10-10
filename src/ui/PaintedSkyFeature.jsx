@@ -4,7 +4,7 @@ export default function PaintedSkyFeature({ status }) {
       <span className="painted-sky-feature-dimmer" />
       <img
         className="painted-sky-feature-band"
-        src={`${import.meta.env.BASE_URL}images/observatory/interior-sky-handpainted-v5.png`}
+        src={`${import.meta.env.BASE_URL}images/observatory/interior-sky-handpainted-v10.png`}
         alt=""
         draggable="false"
       />
