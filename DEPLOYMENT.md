@@ -27,6 +27,13 @@ does not serve Vercel's collection endpoints.
 
 ## Local validation
 
+Link previews use the observatory artwork and the description "some facts about me".
+The image URL is rendered into the HTML at build time so chat crawlers can read it.
+GitHub Pages builds use the repository's Pages URL; Vercel builds use
+`VERCEL_PROJECT_PRODUCTION_URL` (or `VERCEL_URL` as a fallback).
+Set `VITE_SITE_URL` to the full public site URL to override this, including any
+path prefix, for example `https://example.com/`.
+
 ```sh
 npm run lint
 npm run build
