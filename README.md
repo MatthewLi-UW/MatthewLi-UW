@@ -5,8 +5,8 @@ I'm a **CS/BBA student at the University of Waterloo** (Graduating 2027), intere
 
 ### 🏆 Recent Hackathons
 
-- **[Precognition](https://github.com/hAlcLeite/CxC)** - CxC 2026, 2x Winner 🥇
-- **[Slicefund](https://github.com/sxnnywu/slicefund)** - Hack Canada 2026, Winner 🏅
+- **[Precognition](https://devpost.com/software/precognition)** - CxC 2026, 2x Winner 🥇
+- **[Slicefund](https://devpost.com/software/slicefund)** - Hack Canada 2026, 2x Winner 🏅
 
 ### 📰 In the Press
 
