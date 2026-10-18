@@ -2,7 +2,7 @@
 
 Hi there! 
 
-I'm a **CS/BBA student at the University of Waterloo**, passionate about software development and cutting edge AI technology. 
+I'm a **CS/BBA student at the University of Waterloo**, graduating in 2027.
 
 ## Recent hackathons:
 
