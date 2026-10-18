@@ -1,23 +1,19 @@
-# Matthew Li  
 
-Hi there! 
+# Hey, I'm Matthew!
 
-I'm a **CS/BBA student at the University of Waterloo**, graduating in 2027.
+I'm a **CS/BBA student at the University of Waterloo** (Graduating 2027), interested in software engineering, AI, and building cool things.
 
-## Recent hackathons:
+### 🏆 Recent Hackathons
 
-[Precognition](https://github.com/hAlcLeite/CxC): CxC 2026 Winner x2 🏅
+- **[Precognition](https://github.com/hAlcLeite/CxC)** — CxC 2026, 2x Winner 🥇
+- **[Slicefund](https://github.com/sxnnywu/slicefund)** — Hack Canada 2026, Winner 🏅
 
-[Slicefund](https://github.com/sxnnywu/slicefund): Hack Canada 2026 Winner 🏅
+### 📰 In the Press
 
-## 🌐 Learn More  
+Some coverage of the quantum security work I owned at **BitGo**:
 
-For more about me, my projects, and my journey, visit my personal website:  
-http://mattli.me/
+[**Nasdaq**](https://www.nasdaq.com/press-release/bitgo-announces-new-quantum-risk-management-capabilities-bitcoin-wallets-2026-07-09) · [**Yahoo**](https://tech.yahoo.com/cybersecurity/articles/bitgo-launches-public-bitcoin-quantum-145024954.html) · [**The Block**](https://www.theblock.co/news/business/2026-07-09-bitgo-quantum-protection-institutional-bitcoin-wallets-407661) · [**Business Wire**](https://www.businesswire.com/news/home/20260709199344/en/BitGo-Announces-New-Quantum-Risk-Management-Capabilities-for-Bitcoin-Wallets)
 
-Some publications about my work at BitGo:
+### 🌐 Elsewhere
 
-[Nasdaq](https://www.nasdaq.com/press-release/bitgo-announces-new-quantum-risk-management-capabilities-bitcoin-wallets-2026-07-09) |
-[Yahoo](https://tech.yahoo.com/cybersecurity/articles/bitgo-launches-public-bitcoin-quantum-145024954.html?guccounter=1) |
-[The Block](https://www.theblock.co/news/business/2026-07-09-bitgo-quantum-protection-institutional-bitcoin-wallets-407661) |
-[Business Wire](https://www.businesswire.com/news/home/20260709199344/en/BitGo-Announces-New-Quantum-Risk-Management-Capabilities-for-Bitcoin-Wallets)
+Check out my [**personal website ↗**](https://mattli.me/) to learn more about me and what I've been building.
